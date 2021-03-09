@@ -104,11 +104,3 @@ Provided by @[lutherlau](https://github.com/lutherlau)
 <img src="_v_images/20191229111930083_22798.png" width="640px"></img>
 </div>
 
-------
- 
-> 这个笔记本的名字来源于电影《Lone Survivor》中的配乐《Waking Up》；在电影中，这段配乐出现的场景，是两名队员在基地外面的大草原上晨跑。
-
-> 电影中我很喜欢的一句话：  
-> Anything in life worth doing is worth overdoing. Moderation is for cowards.
-
-![waking-up](_v_images/20191228182659294_7488.jpg)
