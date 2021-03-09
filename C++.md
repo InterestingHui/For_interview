@@ -6,6 +6,6 @@
 ---------
 <h>笔记</h>
 <p>声明一个结构体指针：</br>
-  (i)node *Begin=(node *)malloc(sizeof(node)),*another=(node *)malloc(sizeof(node));</br>
-  (ii):    node *Begin=new node(3),*another=new node(5);
+    (i)node *Begin=(node *)malloc(sizeof(node)),*another=(node *)malloc(sizeof(node));</br>
+    (ii)node *Begin=new node(3),*another=new node(5);
 </P>
