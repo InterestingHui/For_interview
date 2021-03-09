@@ -9,8 +9,7 @@
     (i)node *Begin=(node *)malloc(sizeof(node)),*another=(node *)malloc(sizeof(node));</br>
     (ii)node *Begin=new node(3),*another=new node(5);
 </P>
---------
-**设计一个二叉树类**
+<h1>设计一个二叉树类</h1>
 <pre>
 struct TreeNode {
     int val;
