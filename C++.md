@@ -11,6 +11,7 @@
 </P>
 --------
 **设计一个二叉树类**
+<pre>
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -19,4 +20,5 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+</pre>
 
