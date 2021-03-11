@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
 <h1>C++</h1>
 <summary>1.什么是<b>段错误</b></summary>
   <li>段错误就是程序访问受保护或者不存在的内存的时候引发的错误
@@ -22,3 +29,6 @@ struct TreeNode {
 };
 </pre>
 
+
+</body>
+</html>
