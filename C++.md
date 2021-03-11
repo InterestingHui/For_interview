@@ -4,13 +4,15 @@
   <li>引发段错误原因有：访问受保护的内存、访问不存在的内存、访问只读的内存、访问空指针的值、堆栈溢出、内存溢出等
 </details>
 <h2>笔记</h2>
-<h5>1.声明一个结构体指针：</h5>
+<details><summary>
+  <h5>1.声明一个结构体指针：</h5></summary>
 <pre>
     (i)node *Begin=(node *)malloc(sizeof(node)),*another=(node *)malloc(sizeof(node));</br>
     (ii)node *Begin=new node(3),*another=new node(5);
 </pre>
-</P>
-<h5>2.设计一个二叉树类</h5>
+</details>
+<details><summary>
+  <h5>2.设计一个二叉树类</h5></summary>
 <pre>
 struct TreeNode {
     int val;
@@ -21,3 +23,4 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 </pre>
+</details>
