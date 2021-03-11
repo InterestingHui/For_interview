@@ -5,7 +5,7 @@
 </details>
 <h2>笔记</h2>
 <details><summary>
-  1.声明一个结构体指针：</summary>
+  1.声明一个结构体指针</summary>
 <pre>
     (i)node *Begin=(node *)malloc(sizeof(node)),*another=(node *)malloc(sizeof(node));</br>
     (ii)node *Begin=new node(3),*another=new node(5);
