@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head> 
-<meta charset="utf-8"> 
-<title>菜鸟教程(runoob.com)</title> 
-</head>
-<body>
 <h1>C++</h1>
-<summary>1.什么是<b>段错误</b></summary>
+<details>1.什么是<b>段错误</b></details>
   <li>段错误就是程序访问受保护或者不存在的内存的时候引发的错误
   <li>引发段错误原因有：访问受保护的内存、访问不存在的内存、访问只读的内存、访问空指针的值、堆栈溢出、内存溢出等
     </br>
@@ -28,7 +21,3 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 </pre>
-
-
-</body>
-</html>
