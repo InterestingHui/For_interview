@@ -14,6 +14,7 @@
     <br>(v) C字符串相较于SDS字符串的唯一好处是，C字符串能使用<b>全部</b>的<b><string.h></b>库中的函数，而SDS只能兼容<b部分</b><string.h>库中的函数。
 </details>
     <details><summary>2.链表</summary>
-      <li>
-    </details>
+      <li>Redis中的链表是list结构体，里面有指向表头的指针head，和指向表尾的指针tail，类型是listnode类型。然后还有一个记录所含节点数的len属性，是unsigned long类型的，以及三个成员函数：dup复制结点函数、free释放结点函数和match对比结点函数，类型都是void*无类型指针，目的是为了实现链表的多态。
+       <li>然后链表的每个结点listnode串联成链表，然后这链表是双端无环，也就是每个结点都有指向前一个结点的prev指针和指向后一个结点的next指针。最后结点存储是值是void*无类型指针，指向存储的值对象，也是为了实现多态。
+</details>
 
