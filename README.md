@@ -2,8 +2,10 @@
 <div align="center">
 <img src="_v_images/20191229112508482_31766.png"></img>
 </div>
-&nbsp copy from Waking-UP:用于个人备战C++后端开发面试和技术总结。<br>
-&nbsp“每个想进大厂的实习生，都不应该被嘲笑。”
+<div align="center">
+copy from Waking-UP:用于个人备战C++后端开发面试和技术总结。<br>
+“每个想进大厂的实习生，都不应该被嘲笑。”
+</div>
 <div align="center">
 
 | &nbsp;&nbsp;&nbsp;&nbsp;计算机网络&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作系统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;设计模式&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工具&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    |    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    |
