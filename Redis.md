@@ -1,5 +1,6 @@
 <h1>Redis</h1>
 <h3>数据结构</h3>
+<div style="line-height:112px">
 <details><summary>1.字符串</summary>
 <li>redis中的字符串是动态字符串，叫SDS
   <li>redis中用到sds的地方：1.字符串对象：除了字符串值对象外，所有的键值对的键都是字符串对象；2.AOF持久化的输入缓冲区是用SDS实现的
@@ -15,3 +16,4 @@
 </details>
         
       
+</div>
