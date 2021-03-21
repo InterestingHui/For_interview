@@ -3,7 +3,7 @@
 <img src="_v_images/20191229112508482_31766.png"></img>
 </div>
 <div align="center">
-copy from Waking-UP:用于个人备战C++后端开发面试和技术总结。<br>
+用于个人备战C++后端开发面试和技术总结。<br>
 “每个想进大厂的实习生，都不应该被嘲笑。”
 </div>
 <div align="center">
