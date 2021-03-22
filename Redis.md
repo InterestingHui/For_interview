@@ -17,4 +17,11 @@
       <li>Redis中的链表是list结构体，里面有指向表头的指针head，和指向表尾的指针tail，类型是listnode类型。然后还有一个记录所含节点数的len属性，是unsigned long类型的，以及三个成员函数：dup复制结点函数、free释放结点函数和match对比结点函数，类型都是void*无类型指针，目的是为了实现链表的多态。
        <li>然后链表的每个结点listnode串联成链表，然后这链表是双端无环，也就是每个结点都有指向前一个结点的prev指针和指向后一个结点的next指针。最后结点存储是值是void*无类型指针，指向存储的值对象，也是为了实现多态。
 </details>
-
+<details><summary>3.字典</summary>
+  <li>Redis中的字典的实现从最低层往上讲就是：首先由单向链表构成单个哈希表结点，再有一个个哈希表结点构成数组形成一个哈希表，最后由两个哈希表形成一个字典。
+  <li>然后在添加一个键值对的时候，字典通过哈希算法往哈希表中添加结点。期间根据字典维护的负载因子判断是否进行rehash，也就是重新散列。
+    <br><b>下面我可以来为刚刚提到的每个概念进行展开讲解包括rehash的方式和使用哈希算法插入键值对的一些关键点</b>:
+    <li>首先是最外层的字典，他是一个dict结构体：<br>&nbsp&nbsp&nbsp&nbsp（1）其中type属性是一个指向dictType结构的指针，这个dictType结构封装了各种操作特定类型的键值对的函数。<br>&nbsp&nbsp&nbsp&nbsp（2）dict结构体中还有一个private属性，这个属性保存了需要传给dictType结构中特定类型函数的可选参数。<br>&nbsp&nbsp&nbsp&nbsp（3）另外dict结构体中还含有一个rehashidx属性，记录rehash进行时的当前索引，当没有进行rehash时，它的值是-1
+      
+</details>
+    
