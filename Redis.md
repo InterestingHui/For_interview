@@ -21,7 +21,8 @@
   <li>Redis中的字典的实现从最低层往上讲就是：首先由单向链表构成单个哈希表结点，再有一个个哈希表结点构成数组形成一个哈希表，最后由两个哈希表形成一个字典。
   <li>然后在添加一个键值对的时候，字典通过哈希算法往哈希表中添加结点。期间根据字典维护的负载因子判断是否进行rehash，也就是重新散列。
     <br><b>下面我可以来为刚刚提到的每个概念进行展开讲解包括rehash的方式和使用哈希算法插入键值对的一些关键点</b>:
-    <li>首先是最外层的字典，他是一个dict结构体：<br>&nbsp&nbsp&nbsp&nbsp（1）其中type属性是一个指向dictType结构的指针，这个dictType结构封装了各种操作特定类型的键值对的函数。<br>&nbsp&nbsp&nbsp&nbsp（2）dict结构体中还有一个private属性，这个属性保存了需要传给dictType结构中特定类型函数的可选参数。<br>&nbsp&nbsp&nbsp&nbsp（3）另外dict结构体中还含有一个rehashidx属性，记录rehash进行时的当前索引，当没有进行rehash时，它的值是-1
-      
+    <li>首先是最外层的字典，他是一个dict结构体：<br>&nbsp&nbsp&nbsp&nbsp（1）其中type属性是一个指向dictType结构的指针，这个dictType结构封装了各种操作特定类型的键值对的函数。<br>&nbsp&nbsp&nbsp&nbsp（2）dict结构体中还有一个private属性，这个属性保存了需要传给dictType结构中特定类型函数的可选参数。<br>&nbsp&nbsp&nbsp&nbsp（3）另外dict结构体中还含有一个rehashidx属性，记录rehash进行时的当前索引，当没有进行rehash时，它的值是-1<br>&nbsp&nbsp&nbsp&nbsp（4）除此之外就是他的核心结构:ht数组，是一个哈希表数组，且数组大小固定是2，也就是说存储两个哈希表——哈希表[0]和哈希表[1],类型都是dictht结构体。
+    <li>然后是第二层——哈希表，也就是刚刚讲到的dictht结构体:
+      <br>&nbsp&nbsp&nbsp&nbsp
 </details>
     
