@@ -30,10 +30,10 @@
       <br>&nbsp&nbsp&nbsp&nbsp（2）dictEntry的两个属性分别是key和v，key就是键值对的键，是void*无类型指针，指向键对象；v就是键值对的值，是一个union集合，可选类型有void*无类型指针、uint64_t和int64_t
       <br><b>以上这就是整个字典结构上的组成</b>。
      <li>之后我再讲一下加入键值对的步骤，加入键值对就三步:
-       <br>&nbsp&nbsp&nbsp&nbsp（1）首先是通过调用dictType中的函数计算键的hash值，通过MurmurHash2算法。<br>&nbsp&nbsp&nbsp&nbsp（2）第二步是将sizemask和哈希值进行按位与运算得出要插入的索引值。<br>&nbsp&nbsp&nbsp&nbsp（3）第三步就是通过计算出的索引值，找到当前允许键值对的哈希表的索引，把键值对插入到那个索引的单向链表的表头，就完毕了。
+       <br>&nbsp&nbsp&nbsp&nbsp（1）首先是通过调用dictType中的函数计算键的hash值，通过MurmurHash2算法。<br>&nbsp&nbsp&nbsp&nbsp（2）第二步是将sizemask和哈希值进行按位与运算得出要插入的索引值。<br>&nbsp&nbsp&nbsp&nbsp（3）第三步就是通过计算出的索引值，找到当前允许键值对的哈希表的索引，把键值对插入到那个索引的单向链表的表头，就完毕了。<br>
        <b>最后再讲下Rehash</b>
-     <li>：
-       <br>&nbsp&nbsp&nbsp&nbsp字典在不断扩充或者减少的时候需要进行rehash来调整哈希表结构。字典通过判断负载因子和服务器当前的运行情况来判断是否进行rehash。负载因子=正在使用的哈希表的used属性除以size属性。
+     <li>
+       字典在不断扩充或者减少的时候需要进行rehash来调整哈希表结构。字典通过判断负载因子和服务器当前的运行情况来判断是否进行rehash。负载因子=正在使用的哈希表的used属性除以size属性。
        <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp（1）当服务器没有进行BGSAVE命令或者BGREWRITER命令的时候，如果负载因子>=1就执行rehash扩展操作。
        <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp（2）当服务器正在执行BGSAVE命令或者BGREWRITER命令的时候，如果负载因子>=5就执行rehash扩展操作。
        <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp（3）当负载因子<=0.1的时候，程序会自动开始对哈希表进行rehash收缩操作
