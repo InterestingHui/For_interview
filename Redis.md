@@ -25,6 +25,12 @@
     <li>然后是第二层——哈希表，也就是刚刚讲到的dictht结构体:
       <br>&nbsp&nbsp&nbsp&nbsp（1）dictht结构体有三个属性:size、sizemask、used，都是unsigned long类型的。其中size记录哈希表的大小，sizemask记录哈希表大小掩码用于计算加入键值对时的索引，sizemask总是等于size-1，used记录哈希表中已有结点的数量。
       <br>&nbsp&nbsp&nbsp&nbsp（2）除此之外就是dictht结构体的核心——table数组，是一个指针数组，每个指针元素都指向一个哈希表结点。
-    <li>那么就到了第三层，哈希表结点，哈希表
+    <li>那么就到了第三层，最低层——哈希表结点，哈希表结点是dictEntry结构体:
+      <br>&nbsp&nbsp&nbsp&nbsp（1）dictEntry结构体有两个属性和一个指针，指针就是next指针，指向下一个dictEntry结构体，也就是通过next指针形成了单向链表解决哈希冲突。
+      <br>&nbsp&nbsp&nbsp&nbsp（2）dictEntry的两个属性分别是key和v，key就是键值对的键，是void*无类型指针，指向键对象；v就是键值对的值，是一个union集合，可选类型有void*无类型指针、uint64_t和int64_t
+      <br>那么这就是整个字典结构上的组成。
+     <li>然后是加入键值对：加入键值对就三步:
+       <br>&nbsp&nbsp&nbsp&nbsp（1）首先是通过调用dictType中的函数计算键的hash值，通过MurmurHash2算法。<br>&nbsp&nbsp&nbsp&nbsp（2）第二步是将sizemask和哈希值进行按位与运算得出要插入的索引值。<br>&nbsp&nbsp&nbsp&nbsp（3）第三步就是通过计算出的索引值，找到当前允许键值对的哈希表的索引，把键值对插入到那个索引的单向链表的表头，就完毕了。
+     <li>最后再讲下Rehash，
 </details>
     
