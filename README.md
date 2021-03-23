@@ -4,7 +4,6 @@
 </div>
 <div align="center">
   <b>用于个人备战C++后端开发面试和技术总结。</b><br>
-  <b>“每个想进大厂的实习生，都不应该被嘲笑。”</b>
 </div>
 <div align="center">
 
