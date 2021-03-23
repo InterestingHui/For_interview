@@ -53,5 +53,6 @@
 <details><summary>5.整数集合</summary>
   <li>整数集合是一个可以保存int16、int32、int64等整数值的有序集合，即没有重复元素。
   <li>它的使用场景是 当集合内的元素不多且都是int整型元素时，Redis会采用整数集合作为集合键的底层实现。
-  <li>
+  <li>整数集合内有一个contents数组和一个encoding属性，contents数组存储集合内的数据，数据类型有encoding决定，还有length属性能O(1)返回集合的大小
+  <li>需要注意的是，整数集合有升级的操作，就是说它的contents属性的类型不是固定的，
 </details>
