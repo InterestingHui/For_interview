@@ -73,8 +73,9 @@ struct TreeNode {
 };
 </pre>
 </details>
+<hr>
 <h2>google代码风格</h2>
-<details><summary>函数<summary>
+<details><summary>函数</summary>
   <li>左大括号总在最后一个参数同一行的末尾处;
   <li>右圆括号和左大括号间总是有一个空格;
   <li>函数首尾不要有空行
