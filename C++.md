@@ -77,13 +77,12 @@ struct TreeNode {
 <details><summary>函数<summary>
   <li>左大括号总在最后一个参数同一行的末尾处;
   <li>右圆括号和左大括号间总是有一个空格;
-  <li>函数首尾不要有空行;
-<li>
+  <li>函数首尾不要有空行
 </details>
   
 <details><summary>其它</summary>
   <li>大括号不另起一行;
   <li>如果能增强可读性, 简短的条件语句允许写在同一行. 只有当语句简单并且没有使用 else 子句时使用;
   <li>但如果语句中某个 if-else 分支使用了大括号的话, 其它分支也必须使用;
-  <li>代码块首尾不要有空行;
+  <li>代码块首尾不要有空行
 </details>
