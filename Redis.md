@@ -73,7 +73,8 @@
   <li>Redis的对象系统实现了基于引用计数的内存回收机制:也就是当程序不再使用这个对象的时候，就会释放这个对象的内存；同时通过引用计数，Redis实现了对象共享机制。这些都是节约内存的体现。
   <li>Redis的对象还记录的访问对象的时间，这个信息可以用来计算键的空转时长，如果服务器开启了maxmemory功能的话，空转时长较长的键就会优先被删除，节约了内存。
 </details>
-<details><summary>3.Redis对象和数据结构的特点</summary>
+<details><summary>3.Redis对象和数据结构的联系</summary>
   <li>首先Redis由5种对象，然后数据结构严格来说有8种（还有一种说法是忽略了底层数据结构，把对象当成数据结构的，所以会认为Redis有5种数据结构）
-  <li>5中对象分别是字符串对象、列表对象、哈希对象、集合对象、有序集合对象；8中数据结构分别是整数、embstr编码的字符串、简单字符串、字典、双端链表、压缩列表、整数集合、跳跃表：8种数据结构也对应了8种编码，不过编码和底层数据结构之间有一个小区别，其中跳跃表和字典是组合使用作为一种编码的。
+  <li>5中对象分别是字符串对象、列表对象、哈希对象、集合对象、有序集合对象；<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构几乎每种数据结构都对应了一个编码，不过有一个例外，skiplist编码同时使用了跳跃表和字典作为底层数据结构，这些编码前面都有前缀Redis_coding_。<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构分别是整数(编码:INT)、embstr编码的字符串(编码:EMBSTR)、简单字符串(编码:RAW)、字典(编码:HT)、双端链表(编码:LINKEDLIST)、压缩列表(编码:ZIPLIST)、整数集合(编码:INTSET)、跳跃表(编码:SKIPLIST,不过这个编码还得用到字典，所以这个编码要用到两个数据结构)。
+  <li>5种对象和数据结构的关系更主要体现在5种对象所使用的编码上。<br>&nbsp&nbsp&nbsp&nbsp 字符串对象可以使用三种编码:INT、EMBSTR、RAW（有三种选择，但每个对象只使用其中一个编码）;<br>&nbsp&nbsp&nbsp&nbsp其他对象都可以使用两种编码,列表对象可以使用ZIPLIST或者LINKEDLIST<br>&nbsp&nbsp&nbsp&nbsp哈希对象使用ZIPLIST或者HT<br>&nbsp&nbsp&nbsp&nbsp集合对象使用INTSET或者HT<br>&nbsp&nbsp&nbsp&nbsp有序集合对象使用ZIPLIST或者SKIPLIST
 </details>
