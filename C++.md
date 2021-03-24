@@ -1,4 +1,4 @@
-<h1>C++</h1>
+<h1>C++编程</h1>
 <details><summary>1.什么是<b>段错误</b>?</summary>
   <li>段错误就是程序访问受保护或者不存在的内存的时候引发的错误
   <li>引发段错误原因有：访问受保护的内存、访问不存在的内存、访问只读的内存、访问空指针的值、堆栈溢出、内存溢出等
@@ -72,4 +72,18 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 </pre>
+</details>
+<h2>google代码风格</h2>
+<details><summary>函数<summary>
+  <li>左大括号总在最后一个参数同一行的末尾处;
+  <li>右圆括号和左大括号间总是有一个空格;
+  <li>函数首尾不要有空行;
+<li>
+</details>
+  
+<details><summary>其它</summary>
+  <li>大括号不另起一行;
+  <li>如果能增强可读性, 简短的条件语句允许写在同一行. 只有当语句简单并且没有使用 else 子句时使用;
+  <li>但如果语句中某个 if-else 分支使用了大括号的话, 其它分支也必须使用;
+  <li>代码块首尾不要有空行;
 </details>
