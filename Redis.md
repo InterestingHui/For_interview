@@ -116,7 +116,8 @@
 <h3>持久化</h3>
 <details><summary>1.RDB持久化是什么，怎么实现的</summary>
 <li>RDB持久化就是通过RDB文件来保存和还原Redis服务器中所有数据库的键值对数据的一种方式。
-<li>有两个命令能生成RDB文件，一个是SAVE命令，另一个是BGSAVE命令：SAVE命令会阻塞Redis服务器进程，而BGSAVE命令则是通过调用一个子进程去完成创建RDB文件，所以不会阻塞服务器进程；这两个命令的用法也不同，SAVE是主动调用的，BGSAVE通常是Redis自动运行的。
+<li>有两个命令能生成RDB文件，一个是SAVE命令，另一个是BGSAVE命令：SAVE命令会阻塞Redis服务器进程，而BGSAVE命令则是通过调用一个子进程去创建RDB文件，所以不会阻塞服务器进程；这两个命令的用法也不同，SAVE是主动调用的，BGSAVE通常是Redis自动运行的。
+<li>BGSAVE命令通常需要通过ServerCron函数调用，ServerCron就是Redis周期性运行函数，默认每隔100毫秒就会运行一次，每次运行的时候就会检查save选项所设置的保存条件是否满足，如果满足就会才会执行BGSAVE命令。这里的save选项是多个条件，只要满足其中之一就会执行BGSAVE命令，默认是三个条件：900秒1次、300秒10次和60秒10000次，这个意思就是如果每隔900秒数据库如果进行了1次修改，就会保存，等等。这个信息的获取通过Redis服务器维护的dirty属性和lastsave属性，dirty属性就是距离上一次执行SAVE或者BGSAVE，已经发生了多少次修改，所以每次执行SAVE或者BGSAVE，dirty都会清零；lastsave记录最后一次执行SAVE或者BGSAVE的时间，是一个UNIX时间戳。
 </details>
 <details><summary>2.AOF持久化是什么，怎么实现的</summary>
 </details>
