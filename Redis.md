@@ -66,7 +66,7 @@
 </details>
     <h3>对象和数据结构</h3>
 <details><summary>1.Redis的对象的结构</summary>
-  <li>Redis中的对象都是一个redisObject结构体,这个结构体中的type属性记录了对象的类型,encoding属性记录对象的所使用的编码,lru属性记录对象最后一次被访问的时间，还有refcount属性用于引用计数，ptr指针，指向对象使用的数据结构。通过refcount和ptr指针实现了对象的引用计数、共享和内存回收。原理就是新建一个对象的时候初始化refcount为1，之后每被共享或者被使用一次，refcount就会加一，不再被共享的时候就减一，如果为0就会执行内存回收。
+  <li>Redis中的对象都是一个redisObject结构体,这个结构体中的type属性记录了对象的类型,encoding属性记录对象的所使用的编码,lru属性记录对象最后一次被访问的时间，还有refcount属性用于引用计数，ptr指针，指向对象使用的数据结构。通过refcount和ptr指针实现了对象的引用计数、内存共享和内存回收。原理就是新建一个对象的时候初始化refcount为1，之后每被共享或者被使用一次，refcount就会加一，不再被共享的时候就减一，如果为0就会执行内存回收。
 </details>
 <details><summary>2.Redis对象的特点(Redis为什么被称为内存型数据库服务器)</summary>
   <li>Redis的对象可以根据使用的不同场景来选择不同的数据结构作为底层实现，优化了内存结构同时兼顾了效率
