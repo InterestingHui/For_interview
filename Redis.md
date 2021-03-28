@@ -102,4 +102,12 @@
     <li>否则使用skiplist编码，也就是同时采用字典和跳跃表作为底层数据结构。
   </details>
 </details>
-  
+<h3>单机数据库</h3>
+<details><summary>1.Redis中键的生命周期你知道吗，键过期后是怎么被检测的？</summary>
+<li>
+<li>
+</details>
+<details><summary>2.Redis中过期键的删除策略你知道吗？</summary>
+<li>
+<li>
+</details>
