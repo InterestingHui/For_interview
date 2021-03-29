@@ -1,6 +1,16 @@
 <h3>编译原理</h3>
 <details><summary>1.源代码是怎么变成可执行文件的，每一步的作用是什么？</summary>
-  <li>通过四步:预编译、编译、汇编、链接四个步骤
-  <li>预编译主要做6件事:<br>&nbsp&nbsp&nbsp&nbsp(i)将所有的#define删除，并展开所有的宏定义<br>&nbsp&nbsp&nbsp&nbsp(ii)处理所有的<b>条件预编译指令</b>比如#if、#endif、#elif、#else等
+  <li>源代码编程可执行文件，编译器做了4步，第一步是预编译，预编译做的事有很多，我主要列举7件:<br>&nbsp&nbsp&nbsp&nbsp(i)将所有的#define删除，并展开所有的宏定义<br>&nbsp&nbsp&nbsp&nbsp(ii)处理所有的<b>条件预编译指令</b>比如#if、#endif、#elif、#else等
   <br>&nbsp&nbsp&nbsp&nbsp(iii)处理<b>#include预编译指令</b>,并将被包含的文件插入到对应的预编译指令的位置<br>&nbsp&nbsp&nbsp&nbsp(iv)删除所有的注释<br>&nbsp&nbsp&nbsp&nbsp(v)添加行号和文件标识，以便为编译时调试用的行号和编译出错时警告用的行号服务
-<br>&nbsp&nbsp&nbsp&nbsp(vi)最后将.c文件变成.i文件<br>&nbsp&nbsp&nbsp&nbsp要注意的是#pragma指令会被保留，因为编译的时候需要使用它们。
+<br>&nbsp&nbsp&nbsp&nbsp(vi)最后将.c文件变成.i文件<br>&nbsp&nbsp&nbsp&nbsp(vii)处理#pragma指令，这个指令让编译能使用计算机或者操作系统特定的功能
+  <li>第二步是编译，通过编译器进行编译，由5部分组成，每一步如果发现错误就报错：
+    <br>&nbsp&nbsp&nbsp&nbsp(i)第一部分是词法分析：主要是识别源代码中的括号、数字、标点等。
+    <br>&nbsp&nbsp&nbsp&nbsp(ii)第二部分是语法分析，这一步会生成语法树，比如2+4就是一棵根节点是+号，左节点是2，右节点是4的语法树，如果只有2+，在这一步就会报错。
+    <br>&nbsp&nbsp&nbsp&nbsp(iii)第三部分是语义分析，这一步主要分析类型的声明、匹配和转换
+    <br>&nbsp&nbsp&nbsp&nbsp(iv)第四部分是中间语言生成，在这一步会生成与平台无关的三地址码，同时也会将那些在编译期就能确定的表达式进行优化
+    <br>&nbsp&nbsp&nbsp&nbsp(v)第五部分是目标代码生成，这一步编译器会根据三地址码生成依赖于目标机器的目标机器代码，也就是汇编语言。
+    <br>&nbsp&nbsp&nbsp&nbsp最后在执行完这5部分工作后就会将.i文件进行编译，转换成.s汇编语言文件，进入下一步。
+  <li>第三步是汇编。在这一步，汇编器将汇编语言转换成机器可以执行的语言，完全由0和1组成，形成.o目标文件
+  <li>最后一步第四步就是链接：通过调用链接器ld来将多个目标文件以及所依赖的其它库文件链接起来，最后生成可执行文件，在这一步，链接器同时负责地址重分配、符号名称绑定和重定位。
+  <li>执行完这4步就生成了可执行文件。
+</details>
