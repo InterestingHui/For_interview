@@ -1,11 +1,14 @@
 # MySql面试题
 <details><summary>1.MySQL 一条SQL语句的长度大小限制</summary>
+   
 - sql语句的长度大小默认限制是1MB，但是可以通过设置来达到最大1GB的长度大小限制
 </details>
 <details><summary>2.MySQL 行长度限制</summary>
+
 - MySQL中一行数据的字段总长最长不能超过65535字节，所以每个字段的允许长度先是满足该类型规定的最大长度在要满足行数据的最长长度限制。
 </details>
 <details><summary>3.数据库自增ID用完了会怎样？</summary>
+
 - 如果设置了主键索引的话，会报错，主键冲突
 - 如果没有设置主键主键索引的话，新增的数据会覆盖旧数据
 </details>
