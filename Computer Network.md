@@ -318,7 +318,8 @@ Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起�
 
 ### 计算机网络体系结构
 
-<details><summary>计算机网络7层模型、5层模型、4层模型是怎样的，应用层、传输层、网络层有哪些常见的协议？</summary>
+#### 计算机网络7层模型、5层模型、4层模型是怎样的，应用层、传输层、网络层有哪些常见的协议？
+
 ![计算机网络体系结构](_v_images/20191129195451183_16713.png)
 
 - Physical, Data Link, Network, Transport, Application
@@ -333,8 +334,6 @@ Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起�
     - RIP(520端口)：
 - 传输层：TCP/UDP
 - 网络层：IP、ARP、NAT...
-
-</details>
 
 <details>
 <summary>路由器、交换机位于哪一层？</summary>
