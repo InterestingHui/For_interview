@@ -83,7 +83,9 @@
 - 信号掩码/信号屏蔽字(Signal mask)：表示是否屏蔽/阻塞相应的信号（SIGKILL,SIGSTOP除外）
 </details>
 
-<details><summary>进程间通信有哪些方式，能展开讲讲吗？</summary>
+### 进程间通信有哪些方式，能展开讲讲吗？
+
+<details><summary>展开</summary>
 	
 1. 管道(Pipe)
     - 管道是半双工的，数据只能向一个方向流动；需要双方通信时，需要建立起两个管道；
