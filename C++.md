@@ -51,7 +51,26 @@
     </details>
 <hr>
 
-
+<details><summary>9.堆和栈的区别</summary>
+  <li>1.分配和管理方式不同
+    <br>&nbsp&nbsp&nbsp&nbsp堆是动态分配的，其空间的分配和释放都由程序员控制。
+    <br>&nbsp&nbsp&nbsp&nbsp栈由编译器自动管理。栈有两种分配方式：静态分配和动态分配。静态分配由编译器完成，比如局部变量的分配。动态分配由_alloca()函数进行分配，但是栈的动态分配和堆是不同的，它的动态分配是由编译器进行释放，无须手工控制。
+  <li>2.产生碎片不同
+    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp
+  <li>3.增长方向不同
+    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp
+  <li>4.申请效率butong
+    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp
+  <li>5.
+    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp
+  <li>6.
+    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp
+    
 
 <h2>算法题笔记</h2>
 <details><summary>
@@ -87,3 +106,5 @@ struct TreeNode {
   <li>但如果语句中某个 if-else 分支使用了大括号的话, 其它分支也必须使用;
   <li>代码块首尾不要有空行
 </details>
+
+
