@@ -56,16 +56,16 @@
     <br>&nbsp&nbsp&nbsp&nbsp堆是动态分配的，其空间的分配和释放都由程序员控制。
     <br>&nbsp&nbsp&nbsp&nbsp栈由编译器自动管理。栈有两种分配方式：静态分配和动态分配。静态分配由编译器完成，比如局部变量的分配。动态分配由_alloca()函数进行分配，但是栈的动态分配和堆是不同的，它的动态分配是由编译器进行释放，无须手工控制。
   <li>2.产生碎片不同
-    <br>&nbsp&nbsp&nbsp&nbsp
-    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp对堆来说，频繁的new/delete或者malloc/free可能会造成内存空间的不连续，造成大量的碎片，使程序效率降低
+    <br>&nbsp&nbsp&nbsp&nbsp对栈而言，则不存在碎片问题，因为栈是先进后出的队列，永远不可能有一个内存块从栈中间弹出
   <li>3.增长方向不同
     <br>&nbsp&nbsp&nbsp&nbsp
     <br>&nbsp&nbsp&nbsp&nbsp
   <li>4.申请效率butong
-    <br>&nbsp&nbsp&nbsp&nbsp
-    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp栈由系统自动分配，速度较快。但程序员是无法控制的
+    <br>&nbsp&nbsp&nbsp&nbsp堆是由new分配的内存，一般速度比较慢，而且容易产生内存碎片,不过用起来最方便
   <li>5.
-    <br>&nbsp&nbsp&nbsp&nbsp
+    <br>&nbsp&nbsp&nbsp&nbsp在Windows下,栈是高地址向低地址扩展的数据结构，是一块连续的内存的区域。 这句话的意思是栈顶的地址和栈的最大容量是系统预先规定好的，如果申请的空间超过栈的剩余空间时，将提示overflow。因此，能从栈获得的空间较小。
     <br>&nbsp&nbsp&nbsp&nbsp
   <li>6.
     <br>&nbsp&nbsp&nbsp&nbsp
