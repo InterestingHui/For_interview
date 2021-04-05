@@ -278,11 +278,11 @@ HTTP不可以使用UDP，HTTP需要基于可靠的传输协议，而UDP不可靠
 5. 安全性不同：GET请求可被缓存、收藏、保留到历史记录，且其请求数据明文出现在URL中。POST的参数不会被保存，安全性相对较高；
 6. 返回结果不同：GET读取同一个资源，总是得到相同的数据，POST则不是
 
-### Session与Cookie的区别？
+### Session与Cookie的区别？※※※※※※※※※※※※※※※※※※※※※※※
 
 Session是服务器端保持状态的方案，Cookie是客户端保持状态的方案
 
-Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起提交；Session保存在服务端，通过检索Sessionid查看状态。保存Sessionid的方式可以采用Cookie，如果禁用了Cookie，可以使用URL重写机制（把会话ID保存在URL中）。
+Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起提交；Session保存在服务端，通过检索Sessionid查看状态。**保存Sessionid的方式可以采用Cookie**，如果禁用了Cookie，可以使用URL重写机制（把会话ID保存在URL中）。
 
 ### 从输入网址到获得页面的过程 (越详细越好)？
 
