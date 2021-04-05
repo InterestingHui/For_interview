@@ -111,9 +111,8 @@ TCP连接的一方A，随机选择一个32位的序列号（Sequence Number）�
 
 <details><summary>展开</summary>
 
-- 第四次挥手时，客户端发送给服务器的ACK有可能丢失，TIME_WAIT状态就是用来重发可能丢失的ACK报文。如果Server没有收到ACK，就会重发FIN，如果Client在2*MSL的时间内收到了FIN，就会重新发送ACK并再次等待2MSL，防止Server没有收到ACK而不断重发FIN。
-    - 防止旧连接的数据包。如果没有TIME_WAIT，断开连接后又建立了新的连接，如果旧的数据包在新的连接建立后到达，会造成数据错乱，TIME_WAIT可以保证旧的数据包超过报文的最大生存时间，会被丢弃。
-    - 保证连接正确关闭。TIME_WAIT的作用是足够的时间以确保最后的ACK被被动关闭方接受。如果没有TIME_WAIT，ACK被被动关闭方接受，被动关闭方会一直处于LAST_ACK状态，如果此时发起一个新连接，会收到RST。如果有TIME_WAIT，被动断开方没有收到ACK，触发重传FIN报文，主动断开方收到后重新发送ACK。
+- 防止旧连接的数据包造成新的数据传输数据混乱。如果没有TIME_WAIT，断开连接后又建立了新的连接，如果旧的数据包在新的连接建立后到达，会造成数据错乱，TIME_WAIT可以保证旧的数据包超过报文的最大生存时间，会被丢弃。
+- 保证连接正确关闭。TIME_WAIT的作用是足够的时间以确保最后的ACK被被动关闭方接受。如果没有TIME_WAIT，ACK被被动关闭方接受，被动关闭方会一直处于LAST_ACK状态，如果此时发起一个新连接，会收到RST。如果有TIME_WAIT，被动断开方没有收到ACK，触发重传FIN报文，主动断开方收到后重新发送ACK。
 
 - 注：MSL(Maximum Segment Lifetime)，指一个片段在网络中最大的存活时间，2MSL就是一个发送和一个回复所需的最大时间。如果直到2MSL，Client都没有再次收到FIN，那么Client推断ACK已经被成功接收，则结束TCP连接。
 </details>
