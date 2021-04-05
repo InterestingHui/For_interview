@@ -243,12 +243,12 @@ HTTP不可以使用UDP，HTTP需要基于可靠的传输协议，而UDP不可靠
 ##### 输入 www.baidu.com，怎么变成 https://www.baidu.com 的，怎么确定用HTTP还是HTTPS？
 
 <details>
-<summary>展开</summary>
+<summary>你访问的网站是如何自动切换到 HTTPS的</summary>
 
 [你访问的网站是如何自动切换到 HTTPS 的？](https://www.sohu.com/a/136637876_487516)
 
-一种是原始的302跳转，服务器把所有的HTTp流量跳转到HTTPS。但这样有一个漏洞，就是中间人可能在第一次访问站点的时候就劫持。
-解决方法是引入HSTS机制，用户浏览器在访问站点的时候强制使用HTTPS。
+- 一种是原始的302跳转，服务器把所有的HTTp流量跳转到HTTPS。但这样有一个漏洞，就是中间人可能在第一次访问站点的时候就劫持。
+- 解决方法是引入HSTS机制，用户浏览器在访问站点的时候强制使用HTTPS。
 </details>
 
 ##### HTTPS连接的时候，怎么确定收到的包是服务器发来的（中间人攻击）？
