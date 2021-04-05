@@ -55,7 +55,9 @@
 四次握手是指：第二次握手：Server只发送ACK和acknowledge number；而Server的SYN和初始序列号在第三次握手时发送；原来协议中的第三次握手变为第四次握手。出于优化目的，四次握手中的二、三可以合并。
 </details>
 
-##### ※第三次握手中，如果客户端的ACK未送达服务器，会怎样？
+# ※
+
+##### 第三次握手中，如果客户端的ACK未送达服务器，会怎样？
 
 <details>
 <summary>展开</summary>
@@ -107,7 +109,9 @@ TCP连接的一方A，随机选择一个32位的序列号（Sequence Number）�
 客户端没有收到ACK确认，会重新发送FIN请求。
 </details>
 
-##### ※客户端TIME_WAIT状态的意义是什么？
+# ※
+
+##### 客户端TIME_WAIT状态的意义是什么？
 
 <details><summary>展开</summary>
 
