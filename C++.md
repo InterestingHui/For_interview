@@ -51,11 +51,11 @@
     </details>
 <details><summary>9.堆和栈的区别</summary>
   <li>1.分配和管理方式不同
-    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp堆是二级缓存，堆是动态分配的，其空间的分配和释放都由程序员控制。
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp栈是一级缓存，栈由编译器自动管理。栈有两种分配方式：静态分配和动态分配。静态分配由编译器完成，比如局部变量的分配。动态分配由_alloca()函数进行分配，但是栈的动态分配和堆是不同的，它的动态分配是由编译器进行释放，无须手工控制。
+    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp堆是二级缓存，堆是动态分配的，其空间的分配和释放都由程序员控制。
   <li>2.产生碎片不同
-    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp对堆来说，频繁的new/delete或者malloc/free可能会造成内存空间的不连续，造成大量的碎片，使程序效率降低
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp对栈而言，则不存在碎片问题，因为栈是先进后出的队列，永远不可能有一个内存块从栈中间弹出
+    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp对堆来说，频繁的new/delete或者malloc/free可能会造成内存空间的不连续，造成大量的碎片，使程序效率降低
   <li>3.申请效率不同
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp栈由系统自动分配，速度较快。但程序员是无法控制的
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp堆是由new分配的内存，一般速度比较慢，而且容易产生内存碎片,不过用起来最方便
