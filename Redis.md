@@ -66,19 +66,20 @@
 </details>
     <h3>对象和数据结构</h3>
 <details><summary>1.Redis的对象的结构</summary>
-  <li>Redis中的对象都是一个redisObject结构体,这个结构体中的type属性记录了对象的类型,encoding属性记录对象的所使用的编码,lru属性记录对象最后一次被访问的时间，还有refcount属性用于引用计数，ptr指针，指向对象使用的数据结构。通过refcount和ptr指针实现了对象的引用计数、内存共享和内存回收。原理就是新建一个对象的时候初始化refcount为1，之后每被共享或者被使用一次，refcount就会加一，不再被共享的时候就减一，如果为0就会执行内存回收。
+  <li>Redis中的对象都是一个redisObject结构体
+  <li>这个结构体中的type属性记录了对象的类型
+  <li>encoding属性记录对象的所使用的编码
+  <li>lru属性记录对象最后一次被访问的时间，Redis的对象的lru属性还记录的访问对象的时间，通过当前时间减去lru的时间得到键的空转时长，如果服务器开启了maxmemory功能的话，空转时长较长的键就会优先被删除，节约了内存。
+  <li>还有refcount属性用于引用计数
+  <li>ptr指针，指向对象使用的数据结构。
+  <li>通过refcount和ptr指针实现了对象的引用计数、内存共享和内存回收。原理就是新建一个对象的时候初始化refcount为1，之后每被共享或者被使用一次，refcount就会加一，不再被共享的时候就减一，如果为0就会执行内存回收。
 </details>
-<details><summary>2.Redis对象的特点(Redis为什么被称为内存型数据库服务器)</summary>
-  <li>Redis的对象可以根据使用的不同场景来选择不同的数据结构作为底层实现，优化了内存结构同时兼顾了效率
-  <li>Redis的对象系统实现了基于引用计数的内存回收机制:也就是当程序不再使用这个对象的时候，就会释放这个对象的内存；同时通过引用计数，Redis实现了对象共享机制。这些都是节约内存的体现。
-  <li>Redis的对象的lru属性还记录的访问对象的时间，通过当前时间减去lru的时间得到键的空转时长，如果服务器开启了maxmemory功能的话，空转时长较长的键就会优先被删除，节约了内存。
-</details>
-<details><summary>3.Redis对象和数据结构的联系</summary>
+<details><summary>2.Redis对象和数据结构的联系</summary>
   <li>首先Redis由5种对象，然后数据结构严格来说有8种（还有一种说法是忽略了底层数据结构，把对象当成数据结构的，所以会认为Redis有5种数据结构）
   <li>5种对象分别是字符串对象、列表对象、哈希对象、集合对象、有序集合对象；<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构几乎每种数据结构都对应了一个编码，不过有一个例外，skiplist编码同时使用了跳跃表和字典作为底层数据结构，这些编码前面都有前缀Redis_coding_。<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构分别是整数(编码:INT)、embstr编码的字符串(编码:EMBSTR)、简单字符串(编码:RAW)、字典(编码:HT)、双端链表(编码:LINKEDLIST)、压缩列表(编码:ZIPLIST)、整数集合(编码:INTSET)、跳跃表(编码:SKIPLIST,不过这个编码还得用到字典，所以这个编码要用到两个数据结构)。
   <li>5种对象和数据结构的关系更主要体现在5种对象所使用的编码上。<br>&nbsp&nbsp&nbsp&nbsp字符串对象可以使用三种编码:INT、EMBSTR、RAW（有三种选择，但每个对象只使用其中一个编码）;<br>&nbsp&nbsp&nbsp&nbsp其他对象都可以使用两种编码,列表对象可以使用ZIPLIST或者LINKEDLIST;<br>&nbsp&nbsp&nbsp&nbsp哈希对象使用ZIPLIST或者HT;<br>&nbsp&nbsp&nbsp&nbsp集合对象使用INTSET或者HT;<br>&nbsp&nbsp&nbsp&nbsp有序集合对象使用ZIPLIST或者SKIPLIST。
 </details>
-<details><summary>4.Redis五种对象使用不同编码的场景</summary>
+<details><summary>3.Redis五种对象使用不同编码的场景</summary>
 <details><summary>字符串对象</summary>
   <li>如果保存的数据可以用long类型表示，就用int编码，数据结构就是int。
   <li>如果保存的是<=39字节的字符串，就用embstr编码。
