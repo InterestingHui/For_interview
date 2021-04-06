@@ -56,7 +56,7 @@
   <li>2.产生碎片不同
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp对堆来说，频繁的new/delete或者malloc/free可能会造成内存空间的不连续，造成大量的碎片，使程序效率降低
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp对栈而言，则不存在碎片问题，因为栈是先进后出的队列，永远不可能有一个内存块从栈中间弹出
-  <li>3.申请效率butong
+  <li>3.申请效率不同
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp栈由系统自动分配，速度较快。但程序员是无法控制的
     <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp堆是由new分配的内存，一般速度比较慢，而且容易产生内存碎片,不过用起来最方便
   <li>4.申请大小的限制
