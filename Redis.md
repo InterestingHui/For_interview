@@ -76,7 +76,7 @@
 </details>
 <details><summary>2.Redis对象和数据结构的联系</summary>
   <li>首先Redis由5种对象,然后数据结构严格来说有8种（还有一种说法是忽略了底层数据结构,把对象当成数据结构的,所以会认为Redis有5种数据结构）
-  <li>5种对象分别是字符串对象、列表对象、哈希对象、集合对象、有序集合对象；<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构几乎每种数据结构都对应了一个编码,不过有一个例外,skiplist编码同时使用了跳跃表和字典作为底层数据结构,这些编码前面都有前缀Redis_coding_。<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构分别是整数(编码:INT)、embstr编码的字符串(编码:EMBSTR)、简单字符串(编码:RAW)、字典(编码:HT)、双端链表(编码:LINKEDLIST)、压缩列表(编码:ZIPLIST)、整数集合(编码:INTSET)、跳跃表(编码:SKIPLIST,不过这个编码还得用到字典,所以这个编码要用到两个数据结构)。
+  <li>5种对象分别是字符串对象、列表对象、哈希对象、集合对象、有序集合对象；<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构几乎每种数据结构都对应了一个编码,不过有一个例外,skiplist编码同时使用了跳跃表和字典作为底层数据结构,这些编码前面都有前缀Redis_coding_。<br>&nbsp&nbsp&nbsp&nbsp 8种数据结构分别是整数(编码:INT)、embstr编码的字符串(编码:EMBSTR)、简单字符串(编码:RAW)、字典(编码:HT，也就是hashtable的缩写)、双端链表(编码:LINKEDLIST)、压缩列表(编码:ZIPLIST)、整数集合(编码:INTSET)、跳跃表(编码:SKIPLIST,不过这个编码还得用到字典,所以这个编码要用到两个数据结构)。
   <li>5种对象和数据结构的关系更主要体现在5种对象所使用的编码上。<br>&nbsp&nbsp&nbsp&nbsp字符串对象可以使用三种编码:INT、EMBSTR、RAW（有三种选择,但每个对象只使用其中一个编码）;<br>&nbsp&nbsp&nbsp&nbsp其他对象都可以使用两种编码,列表对象可以使用ZIPLIST或者LINKEDLIST;<br>&nbsp&nbsp&nbsp&nbsp哈希对象使用ZIPLIST或者HT;<br>&nbsp&nbsp&nbsp&nbsp集合对象使用INTSET或者HT;<br>&nbsp&nbsp&nbsp&nbsp有序集合对象使用ZIPLIST或者SKIPLIST。
 </details>
 <details><summary>3.Redis五种对象使用不同编码的场景</summary>
@@ -96,7 +96,7 @@
   </details>
   <details><summary>集合对象</summary>
     <li>当集合对象保存的元素都是整数值且数量<=512个时,就会采用intset编码,也就是采用整数集合作为底层数据结构。
-    <li>否则采用hashtable编码。
+    <li>否则采用HT编码。
   </details>
   <details><summary>有序集合对象</summary>
     <li>当有序集合保存的元素长度都<64字节且数量<128个时,采用ziplist编码。
