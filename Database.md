@@ -407,4 +407,14 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
    - **DESC**关键字，降序排序（默认是升序），用法:放在对应列的后面，一次只能用于一个列，eg:SELECTid,price,name FROM Products ORDER BY price DESC,name;#先按价格降序，再按名字升序
 - WHERE
    - 用于选出满足条件的行，即过滤数据
+   - 判断相等是=而不是==，不相等是！=
+   - BETWEEN..AND关键字，找出一个范围内的数据（当然也可以通过比较符结合AND使用）
+       - eg:SELECT name,price FROM Products WHERE price BETWEEN 5 AND 10;
+   - 检查值是否为NULL不能通过 = NULL来判断，而是要使用IS NULL来判断
+       - eg:SELECT name,price FROM Products WHERE price IS NULL;
+   - AND的优先级高于OR的优先级，所以SELECT .. WHERE id = 3 OR name = 'lianghui' AND price = 5;#是先讲name = 'lianghui' 与 price = 5组合在一起考虑的，如果要实现OR先考虑，要加括号
+   - **IN操作符**:IN操作符括号内的内容都要被匹配查找，满足之一即可,功能和多个OR相当。
+       - eg:SELECT name,price FROM Products WHERE id IN('lianghui1','lianghui2');     
+   - **NOT操作符**:用于否定其后的内容，相当于反义
+       - eg:SELECT name,price FROM Products WHERE NOT id IN('A','B','C') ;
    - 
