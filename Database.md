@@ -404,7 +404,7 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
    - ORDER BY需要放在SELECT的最后一行
    - ORDER BY可以以为显示的列作为排序关键字
    - 用例:SELECT prod_id,prod_price,prod_name FROM Products ORDER BY prod_price,prod_name; #对于检索出的列先按prod_price从小到大排序，如果Prod_price相同就按Prod_name字典序从小到大排序
-   - **DESC**关键字，降序排序（默认是升序），用法:放在对应列的后面，一次只能用于一个列，eg:SELECTid,price,name FROM Products ORDER BY price DESC,name;#先按价格降序，再按名字升序
+   - **DESC关键字**，降序排序（默认是升序），用法:放在对应列的后面，一次只能用于一个列，eg:SELECTid,price,name FROM Products ORDER BY price DESC,name;#先按价格降序，再按名字升序
 - WHERE
    - 用于选出满足条件的行，即过滤数据
    - 判断相等是=而不是==，不相等是！=
@@ -413,8 +413,18 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
    - 检查值是否为NULL不能通过 = NULL来判断，而是要使用IS NULL来判断
        - eg:SELECT name,price FROM Products WHERE price IS NULL;
    - AND的优先级高于OR的优先级，所以SELECT .. WHERE id = 3 OR name = 'lianghui' AND price = 5;#是先讲name = 'lianghui' 与 price = 5组合在一起考虑的，如果要实现OR先考虑，要加括号
-   - **IN操作符**:IN操作符括号内的内容都要被匹配查找，满足之一即可,功能和多个OR相当。
+   - **IN关键字**:IN操作符括号内的内容都要被匹配查找，满足之一即可,功能和多个OR相当。
        - eg:SELECT name,price FROM Products WHERE id IN('lianghui1','lianghui2');     
-   - **NOT操作符**:用于否定其后的内容，相当于反义
+   - **NOT关键字**:用于否定其后的内容，相当于反义
        - eg:SELECT name,price FROM Products WHERE NOT id IN('A','B','C') ;
-   - 
+   - **LIKE关键字**:表明要使用正则去匹配
+       - %是通配符，表示任何字符出现任何次数
+           - eg:SELECT * WHERE id LIKE 'FISH%';#以FISH开头的id
+           - eg:SELECT * WHERE id LIKE '%FISH%';#中间含有FISH的id
+           - eg:SELECT * WHERE id LIKE 'b%@qq.com';#b开头的QQ邮箱为id的
+           - 需要注意的是 SELECT * WHERE idLIKE '%';#并不会匹配NULL的列，所以可以用这个来筛选出非NULL列
+       - _类似于%，区别在于只匹配单个任意字符，而%是任意多个任意字符
+       - []用于指定[]内的字符集，注意只能匹配[]中的一个，即匹配的个数只是一个
+           - eg:SELECT * WHERE id LIKE '[ab][cd]%';#表示以ac、ad、bc、bd开头的id
+           - 和^字符连用则表示相反的用法，即不在[]集合内的单个字符eg:[^JM]表示不是J也不是M的单个字符
+     
