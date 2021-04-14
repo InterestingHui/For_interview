@@ -393,7 +393,8 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
 # SQL代码复习
 - select
    - select * 返回所有列，用#写注释
-   - **DISTINCT**关键字:只返回不同的列（列对）不能部分作用，必须会作用于其后所有列。eg:SELECT DISTINCT id,price FROM Products;#则DINSTINCT作用于(id,price)组合的不同列值对
+   - **DISTINCT**关键字:只返回不同的列（列对）不能部分作用，必须会作用于其后所有列。
+       - eg:SELECT DISTINCT id,price FROM Products;#则DINSTINCT作用于(id,price)组合的不同列值对
    - **LIMIT**关键字:用于限制返回的条数
        - mysql> SELECT * FROM table LIMIT 5,10;# 检索记录行 6-15
        - mysql> SELECT * FROM table LIMIT 95,-1;# 检索记录96行到最后一行     
