@@ -1,22 +1,4 @@
 # MySql面试题
-<details><summary>1.MySQL 一条SQL语句的长度大小限制</summary>
-   
-- sql语句的长度大小默认限制是1MB，但是可以通过设置来达到最大1GB的长度大小限制
-</details>
-<details><summary>2.MySQL 行长度限制</summary>
-
-- MySQL中一行数据的字段总长最长不能超过65535字节，所以每个字段的允许长度先是满足该类型规定的最大长度在要满足行数据的最长长度限制。
-</details>
-<details><summary>3.数据库自增ID用完了会怎样？</summary>
-
-- 如果设置了主键索引的话，会报错，主键冲突
-- 如果没有设置主键主键索引的话，新增的数据会覆盖旧数据
-</details>
-
-<details><summary>4.数据库如果数据过多怎么办？</summary>
-   
-- 采用分表，可以用水平切分或者垂直切分（注意没有分列和分行这种说法，要使用专业术语）
-</details>
 
 # 数据库
 
@@ -43,9 +25,11 @@
     * [MySQL的两种存储引擎 InnoDB 和 MyISAM 的区别？](#MySQL的两种存储引擎-InnoDB-和-MyISAM-的区别)
     * [如何优化数据库？](#如何优化数据库)
     * [什么是主从复制？实现原理是什么？](#什么是主从复制实现原理是什么)
-* NoSQL/Redis
-    * [关系型数据库和非关系型数据库的区别？](关系型数据库和非关系型数据库的区别)
-* [参考](#参考)
+* 其它面试题
+    * [MySQL一条SQL语句的长度大小限制?](#MySQL一条SQL语句的长度大小限制)
+    * [MySQL行长度限制?](#MySQL行长度限制)
+    * [数据库自增ID用完了会怎样?](#数据库自增ID用完了会怎样)
+    * [数据库如果数据过多怎么办](#数据库如果数据过多怎么办)
 
 ------
 
@@ -378,27 +362,27 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
 - 降低单个服务器磁盘I/O访问的频率，提高单个机器的I/O性能
 </details>
 
-### 关系型数据库和非关系型数据库的区别？
+#### MySQL一条SQL语句的长度大小限制?
+<details><summary>展开</summary>
+   
+- sql语句的长度大小默认限制是1MB，但是可以通过设置来达到最大1GB的长度大小限制
+</details>
 
+#### MySQL行长度限制
+<details><summary>展开</summary>
 
-### 参考
+- MySQL中一行数据的字段总长最长不能超过65535字节，所以每个字段的允许长度先是满足该类型规定的最大长度在要满足行数据的最长长度限制。
+</details>
 
-- [数据库六大范式详解 -- CSDN博客](https://blog.csdn.net/weixin_43433032/article/details/89293663)
-- [delete，truncate 和 delete之间的区别 -- 博客园](https://www.cnblogs.com/alice-cj/p/10354737.html)
-- [深度探索MySQL主从复制原理](https://baijiahao.baidu.com/s?id=1617888740370098866&wfr=spider&for=pc)
-- 数据库程序员面试笔试宝典-机械工业出版社
-- [CS-Notes/数据库系统原理 -- GitHub](https://github.com/CyC2018/CS-Notes/blob/master/notes/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.md)
-- [面试/笔试第三弹 —— 数据库面试问题集锦 -- CSDN博客](https://blog.csdn.net/justloveyou_/article/details/78308460)
-- [史上最全的数据库面试题，不看绝对后悔 -- 博客园](https://www.cnblogs.com/wenxiaofei/p/9853682.html)
+#### 数据库自增ID用完了会怎样？
+<details><summary>展开</summary>
 
-### 待完成
-- [ ] E-R 模型
-- [ ] 数据库的三级模式和二级映像
-- [ ] [数据类型](https://github.com/CyC2018/CS-Notes/blob/master/notes/MySQL.md#%E5%9B%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)：VARCHAR和CHAR的区别，DATETIME和TIMESATMP的区别
-- [ ] Redis 面试
-    - [CyC2018](https://github.com/CyC2018/CS-Notes/blob/master/notes/Redis.md)
-    - [几率大的Redis面试题（含答案） - CSDN](https://blog.csdn.net/Butterfly_resting/article/details/89668661)
-    - [Redis面试题总结 - 简书](https://www.jianshu.com/p/65765dd10671)
-    - [Redis常见面试题 - 博客园](https://www.cnblogs.com/jasontec/p/9699242.html)
-    - [0voice/interview_internal_reference](https://github.com/0voice/interview_internal_reference#10)
-- [ ] [史上最全的数据库面试题，不看绝对后悔 -- 博客园](https://www.cnblogs.com/wenxiaofei/p/9853682.html)
+- 如果设置了主键索引的话，会报错，主键冲突
+- 如果没有设置主键主键索引的话，新增的数据会覆盖旧数据
+</details>
+
+#### 数据库如果数据过多怎么办？
+<details><summary>展开</summary>
+   
+- 采用分表，可以用水平切分或者垂直切分（注意没有分列和分行这种说法，要使用专业术语）
+</details>
