@@ -125,15 +125,20 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 </pre>
-
+</details>
 <details><summary>3.STL sort的内部实现</summary>
 
 - 数据量大时会采用快排，分段递归排序，一旦分段后的数据量小于某个阈值，就会改用插入排序，如果递归层过深还会改用堆排序
 - 另外就是sort的采用快排的时候，函数内的筛分枢轴选择是采用median-of-three，就是三点中值法，取头中尾三个值取中值
 </details>
+
+<details><summary>4.STL Vector的内部实现</summary>
+
+- vector主要是使用三个迭代器去实现的，迭代器可以理解为指针
+- 另外就是sort的采用快排的时候，函数内的筛分枢轴选择是采用median-of-three，就是三点中值法，取头中尾三个值取中值
 </details>
 
----
+--- 
 
 ### google代码风格
 <details><summary>函数</summary>
