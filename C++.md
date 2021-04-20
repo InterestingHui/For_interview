@@ -100,7 +100,7 @@
 <hr>
 
 
-<h2>算法题笔记</h2>
+<h2>数据结构与算法</h2>
 <details><summary>
   1.声明一个结构体指针</summary>
   
@@ -121,6 +121,12 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 </pre>
+
+<details><summary>3.STL sort的内部实现</summary>
+
+- 数据量大时会采用快排，分段递归排序，一旦分段后的数据量小于某个阈值，就会改用插入排序，如果递归层过深还会改用堆排序
+- 另外就是sort的采用快排的时候，函数内的筛分枢轴选择是采用median-of-three，就是三点中值法，取头中尾三个值取中值
+</details>
 </details>
 
 ---
