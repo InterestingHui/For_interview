@@ -112,6 +112,13 @@
         - weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理，其类似一个普通指针，但不指向引用计数的共享内存，但是其可以检测到所管理的对象是否已经被释放，从而避免非法访问。
         - 使用的时候将其中一个shared_ptr转为weak_ptr，这样就能正常释放原来的两个智能指针了。
         - 所以weak_ptr智能指针就是用来指向shared_ptr的。需要注意的是，不能通过weak_ptr去使用对象的方法，如果要使用必须讲weak_ptr转换成shared_ptr;
+
+<details><summary>如何判断weak_ptr的对象是否失效？</summary>
+ 
+- expired()：检查被引用的对象是否已删除。
+- lock():会返回shared指针，判断该指针是否为空。
+- use_count():也可以得到shared引用的个数，但速度较慢。 
+</details>
 </details>
 
 <hr>
