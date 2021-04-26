@@ -121,7 +121,35 @@
 </details>
 </details>
 
-<details><summary>13.简述 C++ 右值引用与转移语义</summary>
+<details><summary>13.讲一下vector是怎么实现的</summary>
+
+- vector的底层数据结构非常简单，就是一段连续的线性内存空间，然后采用三个迭代器去完成vector的各种接口操作。
+- 这三个迭代器分别是_M_start、_M_finish、_M_end_of_storage
+   - _M_start指向的是vector容器的起始字节位置
+   - _M_finish指向的是当前最后一个元素的末尾字节位置
+   - _M_end_of_storage指向的是整个容器所占用内存空间的末尾字节位置
+- 需要专门提出的是vector的扩容操作，就是vector在push_back的时候实际上是让finish当前的值变为当前要push_back的值，再_M_finish迭代器右移，那这里要分两种情况:
+   - 一个是finish迭代器的位置在end_of_storage前面，那就是直接右移就行
+   - 另一种就是finish迭代器的位置等于end_of_storage迭代器的位置，那这样的话，vector就会调用_M_realloc_insert函数执行扩容操作。
+       - 这个时候vector就会将容量乘2，放入最新的元素
+       - 当然这个乘2是可以到STL库中去设置的，所以有的版本并不是乘2而是乘1.5，据说这样可以减少内存浪费从而提高效率，但是综合来看乘2是最合理的。
+       - 而且这扩容不是在原来的数组基础上扩容的，而是重新申请新的分配空间，然后将原来的数据移动到新的空间中再释放旧的空间，跟Redis map的rehash操作有点像。
+<details><summary>讲一下push_back和emplace_back有什么区别？</summary>
+
+- 首先两者都是往vector中添加元素
+- push_back() 向容器尾部添加元素时，首先会创建这个元素，然后再调用拷贝构造函数将这个元素拷贝到容器中,在销毁之前创建的这个元素；
+- emplace_back() 在实现时，则是调用move函数采用右值引用的方式实现转移语义，直接在容器尾部创建这个元素，省去了拷贝或移动元素的过程，效率更高。
+</details>
+</details>
+
+14.C++11的特性
+<details><summary>①类型推导</summary>
+  
+- C++11引入了auto和decltype这两个关键字，用于在编译器就推导出变量或者表达式的类型
+    - auto用于推导变量的类型
+    - decltype用于推导传入的表达式的类型
+</details>
+<details><summary>②右值引用</summary>
 
 - 首先先说下左值和右值
     - 左值是存储在计算机内存中的一个对象，通常就是赋值符号=号的左边的变量，是可寻址的，可读也可写的、非临时的一个变量
@@ -162,27 +190,25 @@ MyString& operator=(MyString&& str) {
 </pre> 
 </details>
 
-<details><summary>14.讲一下vector是怎么实现的</summary>
+<details><summary>③列表初始化</summary>
 
-- vector的底层数据结构非常简单，就是一段连续的线性内存空间，然后采用三个迭代器去完成vector的各种接口操作。
-- 这三个迭代器分别是_M_start、_M_finish、_M_end_of_storage
-   - _M_start指向的是vector容器的起始字节位置
-   - _M_finish指向的是当前最后一个元素的末尾字节位置
-   - _M_end_of_storage指向的是整个容器所占用内存空间的末尾字节位置
-- 需要专门提出的是vector的扩容操作，就是vector在push_back的时候实际上是让finish当前的值变为当前要push_back的值，再_M_finish迭代器右移，那这里要分两种情况:
-   - 一个是finish迭代器的位置在end_of_storage前面，那就是直接右移就行
-   - 另一种就是finish迭代器的位置等于end_of_storage迭代器的位置，那这样的话，vector就会调用_M_realloc_insert函数执行扩容操作。
-       - 这个时候vector就会将容量乘2，放入最新的元素
-       - 当然这个乘2是可以到STL库中去设置的，所以有的版本并不是乘2而是乘1.5，据说这样可以减少内存浪费从而提高效率，但是综合来看乘2是最合理的。
-       - 而且这扩容不是在原来的数组基础上扩容的，而是重新申请新的分配空间，然后将原来的数据移动到新的空间中再释放旧的空间，跟Redis map的rehash操作有点像。
-<details><summary>讲一下push_back和emplace_back有什么区别？</summary>
-
-- 首先两者都是往vector中添加元素
-- push_back() 向容器尾部添加元素时，首先会创建这个元素，然后再调用拷贝构造函数将这个元素拷贝到容器中,在销毁之前创建的这个元素；
-- emplace_back() 在实现时，则是调用move函数采用右值引用的方式实现转移语义，直接在容器尾部创建这个元素，省去了拷贝或移动元素的过程，效率更高。
+- 可以在变量后面加上初始化列表来进行对对象的初始化
+- 可以进行列表初始化的对象是C++内置的类型或者自定义的聚合类
+- 一个自定义类是聚合类需要满足:
+    - 没有用户声明的构造函数
+    - 没有private关键字保护的非静态数据成员
+    - 本身不是派生类
+    - 内部没有虚函数
+    - 内部没有用=号或者使用列表进行初始化的成员
+    - 没有默认初始化器 
+- 列表初始化的长度是任意的，因为它采用了STL中的std::initializer_list类型作为内部实现
 </details>
+<details><summary>④std::function、std::bind、lambda表达式</summary>
+  
+- c++11新增了std::function、std::bind、lambda表达式等封装使函数调用更加方便。
+- function是多态函数包装器，function的实例可以存储、复制和调用任何可调用的对象，通常用function结合给定的模板参数来声明一个函数，这个函数将会是某种函数功能的实现的别名，所以function的实例如果没有给它一个具体的可调用对象，那么就会抛出bad_function_call异常
+- 
 </details>
-
 <hr>
 
 
