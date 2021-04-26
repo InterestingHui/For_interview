@@ -156,6 +156,28 @@ MyString& operator=(MyString&& str) {
 }
 </pre> 
 </details>
+
+<details><summary>14.讲一下vector是怎么实现的</summary>
+
+- vector的底层数据结构非常简单，就是一段连续的线性内存空间，然后采用三个迭代器去完成vector的各种接口操作。
+- 这三个迭代器分别是_M_start、_M_finish、_M_end_of_storage
+   - _M_start指向的是vector容器的起始字节位置
+   - _M_finish指向的是当前最后一个元素的末尾字节位置
+   - _M_end_of_storage指向的是整个容器所占用内存空间的末尾字节位置
+- 需要专门提出的是vector的扩容操作，就是vector在push_back的时候实际上是让finish当前的值变为当前要push_back的值，再_M_finish迭代器右移，那这里要分两种情况:
+   - 一个是finish迭代器的位置在end_of_storage前面，那就是直接右移就行
+   - 另一种就是finish迭代器的位置等于end_of_storage迭代器的位置，那这样的话，vector就会调用_M_realloc_insert函数执行扩容操作。
+       - 这个时候vector就会将容量乘2，放入最新的元素
+       - 当然这个乘2是可以到STL库中去设置的，所以有的版本并不是乘2而是乘1.5，据说这样可以减少内存浪费从而提高效率，但是综合来看乘2是最合理的。
+       - 而且这扩容不是在原来的数组基础上扩容的，而是重新申请新的分配空间，然后将原来的数据移动到新的空间中再释放旧的空间，跟Redis map的rehash操作有点像。
+<details><summary>讲一下push_back和emplace_back有什么区别？</summary>
+
+- 首先两者都是往vector中添加元素
+- push_back() 向容器尾部添加元素时，首先会创建这个元素，然后再调用拷贝构造函数将这个元素拷贝到容器中,在销毁之前创建的这个元素；
+- emplace_back() 在实现时，则是调用move函数采用右值引用的方式实现转移语义，直接在容器尾部创建这个元素，省去了拷贝或移动元素的过程，效率更高。
+</details>
+</details>
+
 <hr>
 
 
