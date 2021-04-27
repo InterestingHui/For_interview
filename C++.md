@@ -225,6 +225,31 @@ MyString& operator=(MyString&& str) {
     - struct A {int a;int b;};int main() {   vector<A> vec;   std::sort(vec.begin(), vec.end(), [](const A &left, const A &right) { return left.a < right.a; });}
 
 </details>
+<details><summary>⑤对模板的改进</summary>
+  
+- C++11模板允许两右尖括号连续出现，在C++11之前，两个连续的尖括号连续出现会被视为右移操作，如果要表示成两个尖括号嵌套必须要在两个尖括号中间加空格。
+- C++11引入了using，能更轻松地定义别名。
+- C++11之前只有类模板支持默认模板参数，函数模板是不支持默认模板参数的，C++11后都支持。
+</details>
+<details><summary>⑥其它小的变化</summary>
+  
+- 基于范围的for循环，eg:for(int i:V){cout<<i<<endl;}
+- 引入委托构造函数，委托构造函数允许在同一个类中，一个构造函数调用另一个构造函数
+- 引入继承构造函数，继承构造函数允许派生类直接使用基类的构造函数
+- nullptr在C++11中用来表示空指针指向的值，在C++11中表示空指针语义最好使用nullptr而不是NULL，因为NULL本质是一个int型的0，不是空指针的值
+</details>
+<details><summary>⑦final 和 override</summary>
+  
+- final关键字用于修饰一个类，表示这个类不能再进一步派生出子类，也不能再进一步进行虚函数重写
+- override用于修饰派生类中的成员函数，表示该函数重写了基类中的同名虚函数，如果派生类中没有对应的虚函数，就会报错。所以使用override就可以保证所写的函数在基类中是存在的，否则编译不通过
+</details>
+<details><summary>⑧</summary>
+  
+- 
+</details>
+
+
+
 <hr>
 
 
