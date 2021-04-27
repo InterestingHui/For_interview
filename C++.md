@@ -206,8 +206,24 @@ MyString& operator=(MyString&& str) {
 <details><summary>④std::function、std::bind、lambda表达式</summary>
   
 - c++11新增了std::function、std::bind、lambda表达式等封装使函数调用更加方便。
-- function是多态函数包装器，function的实例可以存储、复制和调用任何可调用的对象，通常用function结合给定的模板参数来声明一个函数，这个函数将会是某种函数功能的实现的别名，所以function的实例如果没有给它一个具体的可调用对象，那么就会抛出bad_function_call异常
-- 
+- function是多态函数包装器，function的实例可以存储、复制和调用任何可调用的对象，通常用function结合给定的模板参数来声明一个函数，这个函数可以视为某种函数功能的实现的别名，所以function的实例如果没有给它一个具体的可调用对象，那么就会抛出bad_function_call异常
+- bind是绑定器，将可调用对象和参数一起绑定为函数对象，这样在函数传参的时候可以通过bind绑定的函数对象来简化传参或者固定传参，使用bind如果绑定了多个参数，那么使用了bind的这个函数的参数是少于原先这个函数所需要的参数的，因为bind绑定的函数对象此时等同于多个参数
+- lambda表达式就是定义一个匿名函数，捕获一定范围内的变量在函数内使用，就地实现函数的功能
+    - lambda的语法语法形式:auto func = [capture] (params) opt -> ret { func_body; };
+    - 举例
+        - auto func1 = [](int a) -> int { return a + 1; };
+        - auto func2 = [](int a) { return a + 2; };
+        - auto f3 = [=]() mutable { return a++; };
+    - lambda通过[]来捕获一定范围内的变量： 
+        - []不捕获任何变量
+        - [&]引用捕获，捕获外部作用域所有变量，在函数体内当作引用使用
+        - [=]值捕获，捕获外部作用域所有变量，在函数内内有个副本使用
+        - [=, &a]值捕获外部作用域所有变量，按引用捕获a变量
+        - [a]只值捕获a变量，不捕获其它变量
+        - [this]捕获当前类中的this指针 
+    - 常用就是使用lambda表达式自定义stl的规则，例如自定义sort排序规则：
+    - struct A {int a;int b;};int main() {   vector<A> vec;   std::sort(vec.begin(), vec.end(), [](const A &left, const A &right) { return left.a < right.a; });}
+
 </details>
 <hr>
 
