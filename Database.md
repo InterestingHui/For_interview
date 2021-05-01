@@ -305,6 +305,7 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
 - 经常被查询的字段；
 - 经常用作表连接的字段；
 - 经常出现在ORDER BY/GROUP BY/DISDINCT后面的字段
+</details>
 
 ##### 创建索引时需要注意什么？
 <details>
