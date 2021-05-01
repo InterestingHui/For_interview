@@ -29,12 +29,12 @@
     * [数据库自增ID用完了会怎样?](#数据库自增ID用完了会怎样)
     * [数据库如果数据过多怎么办](#数据库如果数据过多怎么办)
 * [SQL代码复习](#SQL代码复习)
- 
+
 ------
 
 ### 事务的概念和特性？
 <details><summary>展开</summary>
-   
+
 - 概念：事务（Transaction）是一个操作序列，不可分割的工作单位，以BEGIN TRANSACTION开始，以ROLLBACK/COMMIT结束
 - 特性（ACID）：
     - **原子性**（Atomicity）：逻辑上是不可分割的操作单元，事务的所有操作要么全部提交成功，要么全部失败回滚（用回滚日志实现，反向执行日志中的操作）；
@@ -45,17 +45,14 @@
 
 ### 会出现哪些并发一致性问题？
 <details><summary>展开</summary>
-   
+
 - **丢失修改**：一个事务对数据进行了修改，在事务提交之前，另一个事务对同一个数据进行了修改，覆盖了之前的修改；
 - **脏读**（Dirty Read）：一个事务读取了被另一个事务修改、但未提交（进行了回滚）的数据，造成两个事务得到的数据不一致；
 - **不可重复读**（Nonrepeatable Read）：在同一个事务中，某查询操作在一个时间读取某一行数据和之后一个时间读取该行数据，发现数据已经发生修改（针对**update**操作）；
 - **幻读**（Phantom Read）：当同一查询多次执行时，由于其它事务在这个数据范围内执行了插入操作，会导致每次返回不同的结果集（和不可重复读的区别：针对的是一个数据整体/范围；并且针对**insert/delete**操作）
 </details>
-</details>
 
 ### 数据库的四种隔离级别？
-<details><summary>展开</summary>
-
 <details><summary>展开</summary>
 - **未提交读**（Read Uncommited）：在一个事务提交之前，它的执行结果对其它事务也是可见的。会导致脏读、不可重复读、幻读；
 - **提交读**（Read Commited）：一个事务只能看见已经提交的事务所作的改变。可避免脏读问题；
@@ -66,7 +63,6 @@
 ### 什么是乐观锁和悲观锁？
 <details><summary>展开</summary>
 
-
 - 悲观锁：认为数据随时会被修改，因此每次读取数据之前都会上锁，防止其它事务读取或修改数据；应用于**数据更新比较频繁**的场景；
 - 乐观锁：操作数据时不会上锁，但是更新时会判断在此期间有没有别的事务更新这个数据，若被更新过，则失败重试；适用于**读多写少**的场景。乐观锁的实现方式有：
     - 加一个版本号或者时间戳字段，每次数据更新时同时更新这个字段；
@@ -76,7 +72,7 @@
 ### 常见的封锁类型？
 <details><summary>展开</summary>
 
-意向锁是 InnoDB 自动加的， 不需用户干预。 
+意向锁是 InnoDB 自动加的， 不需用户干预。
 对于 UPDATE、 DELETE 和 INSERT 语句， InnoDB
 会自动给涉及数据集加排他锁（X)；
 对于普通 SELECT 语句，InnoDB 不会加任何锁；
@@ -92,6 +88,7 @@
     - 好处：如果一个事务想要对整个表加X锁，就需要先检测是否有其它事务对该表或者该表中的某一行加了锁，这种检测非常耗时。有了意向锁之后，只需要检测整个表是否存在IX/IS/X/S锁就行了
 
 锁的作用：用于管理对共享资源的并发访问，保证数据库的完整性和一致性
+
 <details>
 <summary>封锁粒度的概念</summary>
 
@@ -423,7 +420,7 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
 
 ### MySQL一条SQL语句的长度大小限制?
 <details><summary>展开</summary>
-   
+
 - sql语句的长度大小默认限制是1MB，但是可以通过设置来达到最大1GB的长度大小限制
 </details>
 
@@ -442,7 +439,7 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
 
 ### 数据库如果数据过多怎么办？
 <details><summary>展开</summary>
-   
+
 - 采用分表，可以用水平切分或者垂直切分（注意没有分列和分行这种说法，要使用专业术语）
 </details>
 
@@ -453,7 +450,7 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
        - eg:SELECT DISTINCT id,price FROM Products;#则DINSTINCT作用于(id,price)组合的不同列值对
    - **LIMIT**关键字:用于限制返回的条数
        - mysql> SELECT * FROM table LIMIT 5,10;# 检索记录行 6-15
-       - mysql> SELECT * FROM table LIMIT 95,-1;# 检索记录96行到最后一行     
+       - mysql> SELECT * FROM table LIMIT 95,-1;# 检索记录96行到最后一行
        - mysql> SELECT * FROM table LIMIT 5;# 检索前 5 个记录行 <=> LIMIT 0,5
 - 排序
    - 排序使用ORDER BY语句,默认是升序
@@ -470,7 +467,7 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
        - eg:SELECT name,price FROM Products WHERE price IS NULL;
    - AND的优先级高于OR的优先级，所以SELECT .. WHERE id = 3 OR name = 'lianghui' AND price = 5;#是先讲name = 'lianghui' 与 price = 5组合在一起考虑的，如果要实现OR先考虑，要加括号
    - **IN关键字**:IN操作符括号内的内容都要被匹配查找，满足之一即可,功能和多个OR相当。
-       - eg:SELECT name,price FROM Products WHERE id IN('lianghui1','lianghui2');     
+       - eg:SELECT name,price FROM Products WHERE id IN('lianghui1','lianghui2');
    - **NOT关键字**:用于否定其后的内容，相当于反义
        - eg:SELECT name,price FROM Products WHERE NOT id IN('A','B','C') ;
    - **LIKE关键字**:表明要使用正则去匹配
@@ -489,5 +486,5 @@ InnoDB的索引使用的是B+树实现，B+树对比B树的好处：
     - LENGTH():返回字符串的长度
     - AVG():传入参数是列名，返回该列的值的平均值，只能用于单个列
     - COUNT():计算满足条件的行的数目,例如COUNT( * )、COUNT()就是计算行的总数
-        - COUNT()会忽略值为NULL的列而COUNT(*)不会 
-    - 
+        - COUNT()会忽略值为NULL的列而COUNT(*)不会
+    -
