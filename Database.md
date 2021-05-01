@@ -16,6 +16,8 @@
     * [什么是视图？什么是游标？](#什么是视图什么是游标)
 * MySQL
     * [SQL语句的执行过程](#SQL语句的执行过程) 
+        * [redo log日志和bin log日志的区别?](#redo log日志和bin log日志的区别)
+        * [在update过程中，mysql突然宕机，会发生什么情况?](#redo log日志和bin log日志的区别)
     * [数据库索引的实现原理（B+树）](#数据库索引的实现原理b树)
     * [使用索引的优点](#使用索引的优点)
     * [哪些情况下索引会失效？](#哪些情况下索引会失效)
@@ -276,7 +278,7 @@ delete;
     - 第6步是**执行器**收到通知后，将记录**写入到binlog**
     - 第7步是**执行器**调用引擎的提交事务接口，把刚刚写入的relog改为commit提交状态，这样更新就完成了
 
-##### redo log日志和bin log日志的区别
+#### redo log日志和bin log日志的区别
 <details><summary>展开</summary>
 
 - binlog是归档日志，是MySQL server层的日志
@@ -288,7 +290,8 @@ delete;
     - 是循环写入的，写到末尾就会从头开始覆盖。
 </details>
 
-<details><summary>在update过程中，mysql突然宕机，会发生什么情况</summary>
+#### 在update过程中，mysql突然宕机，会发生什么情况?
+<details><summary>展开</summary>
 
 - 如果bin log还没有写入，那么宕机重启就会直接事务回滚
 - 如果bin log写入了，此时redo log也已经写入了，如果redo log还没有更新为提交状态，那么MySQL就会检查对应事务在bin log中是否完整，如果是就提交事务，否则就回滚
