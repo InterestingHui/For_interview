@@ -281,11 +281,13 @@ delete;
 #### redo log日志和bin log日志的区别
 <details><summary>展开</summary>
 
-- binlog是归档日志，是MySQL server层的日志
+- bin log是归档日志，是MySQL server层的日志
+    - bin log使得数据库能够基于时间点进行恢复数据 
     - 是逻辑日志，记录的是SQL语句的原始逻辑
     - 是追加写入的,没有限制大小，不会覆盖之前的日志
-- redo log重做日志，是InnoDB特有的日志
+- redo log重做日志，是数据库引擎层的日志，也是InnoDB特有的日志
     - 用来应对异常恢复的，具有cresh-safe特性，也就是redo log可以保证MySQL异常重启的时候，未提交的事务回滚，已提交的事务安全落库
+    - 是物理日志，内容是基于磁盘的
     - 具有固定大小，可以进行配置，比如配置为一组4个文件，每个文件1GB
     - 是循环写入的，写到末尾就会从头开始覆盖。
 </details>
