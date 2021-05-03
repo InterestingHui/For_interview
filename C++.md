@@ -248,7 +248,13 @@ MyString& operator=(MyString&& str) {
 - 
 </details>
 
-
+<details><summary>15.C++涉及存储位置的关键字</summary>
+  
+- auto:分配在栈上
+- Register：存储在CPU寄存器上
+- static：静态存储去
+- extern：外部编译单元（文件）中
+</details>
 
 <hr>
 
