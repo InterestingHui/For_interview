@@ -9,7 +9,7 @@
     * [~~什么是TCP粘包?~~](#什么是TCP粘包)
 * 应用层：HTTP和HTTPS
     * [HTTP和HTTPS有什么区别?](#HTTP和HTTPS有什么区别)
-    * [HTTPS的连接过程](#HTTPS的连接过程)、
+    * [HTTPS的连接过程](#HTTPS的连接过程)
     * [什么是对称加密、非对称加密?有哪些典型算法?两者有什么区别?](#什么是对称加密、非对称加密?有哪些典型算法?两者有什么区别?)
     * [GET与POST的区别?](#GET与POST的区别)
     * [Session与Cookie的区别?](#Session与Cookie的区别)
