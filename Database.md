@@ -94,6 +94,7 @@
 - 通过next-key锁：next-key锁（也就是next-key lock）是行锁的一种，实现相当于record lock(记录锁) + gap lock(间隙锁)；其特点是不仅会锁住记录本身(record lock的功能)，还会锁定一个范围(gap lock的功能)。因此，加锁读同样可以避免脏读、不可重复读和幻读，保证隔离性。
 - 当然RR隔离级别下的读还是要通过MVCC
 </details>
+
 #### 什么是乐观锁和悲观锁？
 <details><summary>展开</summary>
 
