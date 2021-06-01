@@ -20,3 +20,5 @@
 ### 小tips
 - touch：创建文件；mkdir 创建文件夹
 - 进入文件夹的方式 cd 文件夹名 或者cd ./文件夹名 或者 cd \Test 但是不能 cd /Test ；推荐“cd 文件夹名”
+- cd /进入./目录
+- 通过python paramiko连接SSH是默认在./root目录而不是在./目录，所以需要先进入./操作（如果需要的话）
