@@ -168,7 +168,7 @@ print(a is b)
 - ```lst.count(value)```：计数值为value的元素个数
 - ```lst.sort(reverse = False)```：排序，默认升序
 
-### async/await 异步修饰符
+### async/await 异步修饰符[https://blog.csdn.net/The_Time_Runner/article/details/105646363]
 - async修饰将普通函数和生成器函数包装成异步函数和异步生成器
     - 异步函数（协程） ：CoroutineType
 ```python async def async_function():    return 3```
