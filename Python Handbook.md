@@ -175,6 +175,8 @@ print(a is b)
     - 异步生成器 ： AsyncGeneratorType
 ```python async def async_function():    yield 4```
 
+### @:装饰器[https://www.runoob.com/w3cnote/python-func-decorators.html]
+
 ### 参考
 - [生成器 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)
 - [Python中的is和==的区别](https://www.cnblogs.com/yjtxin/p/11793243.html)
