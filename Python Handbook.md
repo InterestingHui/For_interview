@@ -168,9 +168,17 @@ print(a is b)
 - ```lst.count(value)```：计数值为value的元素个数
 - ```lst.sort(reverse = False)```：排序，默认升序
 
+### async/await 异步修饰符
+- async修饰将普通函数和生成器函数包装成异步函数和异步生成器
+    - 异步函数（协程） ：CoroutineType
+```python async def async_function():    return 3```
+    - 异步生成器 ： AsyncGeneratorType
+```python async def async_function():    yield 4```
+
 ### 参考
 - [生成器 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)
 - [Python中的is和==的区别](https://www.cnblogs.com/yjtxin/p/11793243.html)
 - [为什么Python多线程无法利用多核](https://www.mdeditor.tw/pl/pXhj)
 - [GIL锁、线程锁(互斥锁)、递归锁(RLock)](https://www.cnblogs.com/Keep-Ambition/p/7596098.html)
+
 
