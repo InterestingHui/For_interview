@@ -1,13 +1,10 @@
-# Git/RESTful API/命令行
+# Git
 
 * [Git](#git)
     * [Git 常用命令](#git-常用命令)
 * [参考](#参考)
 
 ------
-
-## Git
-
 #### Git 常用命令
 - git remote -v显示所有远程仓库 
 - git pull ：从远程获取代码并合并本地的版本
