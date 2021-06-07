@@ -13,6 +13,8 @@
 - git fetch :从远程获取代码库
 - git push ：上传代码库
     - git push origin br_IntegrationCode -f 强制上传
+    - git push -u origin master：如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push
+    - git push:如果当前分支只有一个追踪分支，那么主机名都可以省略
 - git log -x 查看最近x个版本
 - git reset 版本号 ：回滚到第几个版本（之后还要git push，可能要加-f参数）
 
@@ -20,7 +22,8 @@
 - 先git status 查看红色字知道哪些进行了修改
 - 然后git add 指定文件或目录上传到暂存区
 - 之后git commit把暂存区文件提交到当前分支
-- 最后在git push origin xx 到远程仓库（一般xx就是上面提示的最右边青蓝色括号里的目录），有时可能要加-f参数进行强制上传
+- 再git pull 更新到项目最新版本
+- 最后在git push origin xx 到远程仓库（也就是上传到xx分支，一般xx就是上面提示的最右边青蓝色括号里的目录），有时可能要加-f参数进行强制上传
 
 ### 参考
 - [Git教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/896043488029600)
