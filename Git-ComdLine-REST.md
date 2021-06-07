@@ -18,6 +18,7 @@
 - 查看最近x个版本：git log -x 
 - 回滚到第几个版本（之后还要git push，可能要加-f参数）：git reset 版本号 ：
 - 创建分支：git branch XXX
+- 显示当前分支所在目录：git branch
 - 切换到指定分支：git checkout xxx
 
 ### 上传本地代码到远程仓库
