@@ -17,6 +17,18 @@
 ### 其它
 - 如果git merge失败了通常是因为有文件冲突了，这时候冲突如果是其他同事上传的，那就只能回滚：git reset --merge
 
+### git连接远程仓库
+#### 1
+- 先在一个文件夹里右键打开git bash
+- 然后初始化：git init
+- 然后输入git remote add origin [url]
+
+#### 2
+- 先在一个目录下打开git bash
+- 直接输入 git clone [url] 克隆项目到本地
+- 
+
+
 ### 上传本地代码到远程仓库
 - 先git status 查看红色字知道哪些进行了修改
 - 然后git add 指定文件或目录上传到暂存区
