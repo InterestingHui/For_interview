@@ -1,10 +1,3 @@
-# Git
-
-* [Git](#git)
-    * [Git 常用命令](#git-常用命令)
-* [参考](#参考)
-
-------
 #### Git 常用命令
 - 显示所有远程仓库：git remote -v 
 - 从远程获取代码并合并本地的版本：git pull
@@ -20,6 +13,9 @@
 - 创建分支：git branch XXX
 - 显示当前分支所在目录：git branch
 - 切换到指定分支：git checkout xxx
+
+### 其它
+- 如果git merge失败了通常是因为有文件冲突了，这时候冲突如果是其他同事上传的，那就只能回滚：git reset --merge
 
 ### 上传本地代码到远程仓库
 - 先git status 查看红色字知道哪些进行了修改
