@@ -134,15 +134,17 @@
        - 这个时候vector就会将容量乘2，放入最新的元素
        - 当然这个乘2是可以到STL库中去设置的，所以有的版本并不是乘2而是乘1.5，据说这样可以减少内存浪费从而提高效率，但是综合来看乘2是最合理的。
        - 而且这扩容不是在原来的数组基础上扩容的，而是重新申请新的分配空间，然后将原来的数据移动到新的空间中再释放旧的空间，跟Redis map的rehash操作有点像。
-<details><summary>讲一下push_back和emplace_back有什么区别？</summary>
+
+</details>
+
+<details><summary>14.讲一下push_back和emplace_back有什么区别？</summary>
 
 - 首先两者都是往vector中添加元素
 - push_back() 向容器尾部添加元素时，首先会创建这个元素，然后再调用拷贝构造函数将这个元素拷贝到容器中,再销毁之前创建的这个元素；
 - emplace_back() 在实现时，则是调用move函数采用右值引用的方式实现转移语义，直接在容器尾部创建这个元素，省去了拷贝或移动元素的过程，效率更高。
 </details>
-</details>
 
-14.C++11的特性
+15.C++11的特性
 <details><summary>①类型推导</summary>
 
 - C++11引入了auto和decltype这两个关键字，用于在编译器就推导出变量或者表达式的类型
