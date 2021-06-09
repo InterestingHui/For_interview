@@ -254,7 +254,7 @@ MyString& operator=(MyString&& str) {
 
 - auto:分配在栈上
 - Register：存储在CPU寄存器上
-- static：静态存储去
+- static：静态存储区
 - extern：外部编译单元（文件）中
 </details>
 
