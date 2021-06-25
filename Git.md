@@ -38,6 +38,10 @@
 - 如果push失败了
     - “由于我当前所在分支就是 br_Q2Rest 分支 ,所以本地和远端的参数的默认分支名都是 br_Q2Rest 整的push 参数可以这样写: git push -u lhz br_Q2Rest:br_Q2Rest” 
     - http://3ms.huawei.com/km/blogs/details/9617226
+
+### 解决冲突的时候要用到git rebase
+
+
 ### 参考
 - [Git教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/896043488029600)
 - [RESTful API 最佳实践 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html)
