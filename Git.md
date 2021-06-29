@@ -39,6 +39,25 @@
     - “由于我当前所在分支就是 br_Q2Rest 分支 ,所以本地和远端的参数的默认分支名都是 br_Q2Rest 整的push 参数可以这样写: git push -u lhz br_Q2Rest:br_Q2Rest” 
     - http://3ms.huawei.com/km/blogs/details/9617226
 
+### git提交本地到一个子分支并合并子分支到另外一个父分支：
+- git branch
+- git checkout [子分支]
+- git add ...
+- git commit -m ".."  (别忘了 -m)
+- git branch （查看所有分支）
+- git checkout [父分支名]
+- git pull origin [父分支名]  (先更新父分支名的代码）
+- git branch
+- git checkout [子分支名]
+- git rebase [父分支名]
+- (本地用TorToiseGit，revert是回退到之前的版本，也就是左边的版本；Diff能解决冲突，通过
+- 本地使用TortoiseGit
+    - Revert是回退版本，也就是返回到左边的版本
+        - 打开的快捷键：右键+T+Enter+v 
+        - 打开后双击能查看版本不同，点OK能回到左边版本
+    - Diff是解决文件冲突
+        - 打开的快捷键：右键+T+Enter+Enter
+    - 
 ### 解决冲突的时候要用到git rebase
 
 
