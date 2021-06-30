@@ -50,6 +50,7 @@
 - git branch
 - git checkout [子分支名]
 - git rebase [父分支名]
+    - 注意这里要保证commit的东西已经全部commit的，如果有修改的没有add上去的话，就要git checkout 文件，也就是恢复这个文件，然后在git rebase 
 - (本地用TorToiseGit，revert是回退到之前的版本，也就是左边的版本；Diff能解决冲突，通过
 - 本地使用TortoiseGit
     - Revert是回退版本，也就是返回到左边的版本
@@ -57,7 +58,10 @@
         - 打开后双击能查看版本不同，点OK能回到左边版本
     - Diff是解决文件冲突
         - 打开的快捷键：右键+T+Enter+Enter
-    - 
+        - 
+    - Resolve 是解决冲突：也就是当将分支合并入主干（在分支：git rebase master）的情况下解决冲突的手段
+- git push origin [子分支] （注意这里就是在子分支）
+（这里如果push失败有可能是还得先pull 子分支的远端分支）
 ### 解决冲突的时候要用到git rebase
 
 
