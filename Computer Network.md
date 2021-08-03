@@ -313,7 +313,6 @@ Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起�
 ![计算机网络体系结构](_v_images/20191129195451183_16713.png)
 #### 注意上图有错误：TCP/IP 四层模型从高往低分别是应用层、传输层、网络层和数据链路层
 
-- Physical, Data Link, Network, Transport, Application
 - 应用层：常见协议：
     - FTP(21端口)：文件传输协议
     - SSH(22端口)：安全外壳协议——用于远程登录
@@ -324,8 +323,12 @@ Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起�
     - POP3(110端口)：接收邮件
     - RIP(520端口)：路由信息协议
 - 传输层：TCP/UDP
-- 网络层：IP、ARP、NAT...
+- 网络层：IP、NAT...
+<details><summary>ARP协议位于哪一层？</summary>
 
+- 在OSI 7层模型中位于数据链路层，在TCP/IP 4层模型中位于IP层/网络层
+- 确切地说，ARP和RARP就是把链路层的MAC地址和网络层的IP地址联系起来，介于链路层和网络层
+</details>
 <details>
 <summary>路由器、交换机位于哪一层?</summary>
 
