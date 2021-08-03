@@ -144,7 +144,7 @@
 - emplace_back() 在实现时，则是调用move函数采用右值引用的方式实现转移语义，直接在容器尾部创建这个元素，省去了拷贝或移动元素的过程，效率更高。
 </details>
 
-<details><summary>C++11的特性</summary>
+<details><summary>15.C++11的特性</summary>
  
 <details><summary>①类型推导</summary>
 
@@ -252,7 +252,7 @@ MyString& operator=(MyString&& str) {
 </details>
 </details>
  
-<details><summary>15.C++涉及存储位置的关键字</summary>
+<details><summary>16.C++涉及存储位置的关键字</summary>
 
 - auto:分配在栈上
 - Register：存储在CPU寄存器上
@@ -260,13 +260,27 @@ MyString& operator=(MyString&& str) {
 - extern：外部编译单元（文件）中
 </details>
 
-<details><summary>16.Register关键字</summary>
+<details><summary>17.Register关键字</summary>
 
 - 用Register关键字声明的变量将尽可能地存放在CPU寄存器中，从而提高访问变量的效率。这里用尽可能是因为CPU的寄存器能存储的变量是有限的
 - 所以频繁被使用的变量最好采用register以提高访问速度，否则反而有可能降低程序运行的效率，因为变量并不频繁被使用导致使用的消耗还小于变量被装入cpu寄存器带来的开销
 - 但是用register关键字声明的变量必须是能被cpu所接受的类型，比如浮点数或者longlong长整型可能无法被寄存器存放
 - 如果用&取地址符号对register声明的变量操作的话，会导致这个register关键字无效，因为这样一来需要知道变量的地址，那么就不能存储在CPU寄存器中
 </details>
+ 
+ <details><summary>18.引用与对象的生命周期</summary>
+ 
+- 首先C++中的对象根据存储位置分三种
+    - 数据段上的对象   
+    - 栈上的对象
+    - 堆上的对象
+- 三种对象的生命周期
+    - 数据段的最后析构，生命周期和程序一样
+    - 栈上的对象先构造的后析构，出作用域析构
+    - 堆上的手动开辟，需要手动释放delete析构
+- 引用能改变对象的生命周期，引用能提高临时变量的生命周期
+    - 具体点说就是临时对象被引用时，当这个临时对象的语句结束，临时对象不会被析构，而当引用变量什么时候结束，这个对象才会什么时候结束，才被析构；
+ </details>
 <hr>
 
 
