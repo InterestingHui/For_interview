@@ -144,8 +144,7 @@
 - emplace_back() 在实现时，则是调用move函数采用右值引用的方式实现转移语义，直接在容器尾部创建这个元素，省去了拷贝或移动元素的过程，效率更高。
 </details>
 
-15.C++11的特性
-<details><summary>展开</summary>
+<details><summary>C++11的特性</summary>
  
 <details><summary>①类型推导</summary>
 
