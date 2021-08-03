@@ -145,6 +145,8 @@
 </details>
 
 15.C++11的特性
+<details><summary>展开</summary>
+ 
 <details><summary>①类型推导</summary>
 
 - C++11引入了auto和decltype这两个关键字，用于在编译器就推导出变量或者表达式的类型
@@ -249,7 +251,8 @@ MyString& operator=(MyString&& str) {
 
 -
 </details>
-
+</details>
+ 
 <details><summary>15.C++涉及存储位置的关键字</summary>
 
 - auto:分配在栈上
