@@ -346,6 +346,9 @@ struct TreeNode {
 - 另外就是sort的采用快排的时候，函数内的筛分枢轴选择是采用median-of-three，就是三点中值法，取头中尾三个值取中值
 </details>
 
+#### 好题收藏/经典算法
+- https://leetcode-cn.com/problems/linked-list-cycle/ ：环形链表——快慢指针
+ 
 ---
 
 ### google代码风格
