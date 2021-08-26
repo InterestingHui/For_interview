@@ -25,8 +25,11 @@
 
 - 方法2
     - 先在一个目录下打开git bash
-    - 直接输入 git clone [url] 克隆项目到本地
-
+    - 直接输入 git clone [url] 克隆项目到本地（不用git init）
+    - 如果是分支：
+        - eg：git fetch origin master_2021_ddjsjr
+            - git checkout origin/master_2021_ddjsjr -b master_2021_ddjsjr_lh 
+-
 ### Commit
 - git checkout -- .    ： 撤销全部修改
 
