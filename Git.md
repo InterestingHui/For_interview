@@ -11,11 +11,11 @@
 #### Git常用命令
 - git remote -v ：显示所有远程仓库
 - **git pull**
-- 将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并：git pull origin master:brantest
-- 如果远程分支是与当前分支合并，则冒号后面的部分可以省略：git pull origin master
+    - 将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并：git pull origin master:brantest
+    - 如果远程分支是与当前分支合并，则冒号后面的部分可以省略：git pull origin master
 - git fetch：从远程下载代码库（但并不合并）
 - **git push**
-- 如果当前分支只有一个追踪分支，那么主机名都可以省略：git push
+    - 如果当前分支只有一个追踪分支，那么主机名都可以省略：git push
 - git log -x：查看最近x个版本：
 - git reset 版本号：回滚到第几个版本
 - git branch XXX：创建分支
