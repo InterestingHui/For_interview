@@ -3,7 +3,7 @@
 - 从远程获取代码并合并本地的版本：git pull
     - 将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并：git pull origin master:brantest
     - 如果远程分支是与当前分支合并，则冒号后面的部分可以省略：git pull origin master
-- 从远程获取代码库：git fetch
+- 从远程下载代码库（但并不合并）：git fetch
 - 上传代码库：git push
     - 强制上传：git push origin br_IntegrationCode -f 
     - 如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用：git push -u origin master：
