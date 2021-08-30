@@ -35,7 +35,7 @@
 - git branch -vv
 
 ### git强制push
-        git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj
+- git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj
 
 ### git连接远程仓库
 - 方法1：手动添加远程分支并命名
