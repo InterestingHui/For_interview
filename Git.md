@@ -1,4 +1,14 @@
-#### Git 常用命令
+# Git
+- [Git 常用命令](# Git常用命令)
+- [放弃本地修改，将本地代码更新到目前远程仓库最新的代码状态](# 放弃本地修改，将本地代码更新到目前远程仓库最新的代码状态)
+- [简单的放弃本地修改，还原到一开始的状态](# 简单的放弃本地修改，还原到一开始的状态)
+- [查看本地分支对应的远程分支](# 查看本地分支对应的远程分支)
+- [git强制push](# git强制push)
+- [git连接远程仓库](# git连接远程仓库)
+- [上传本地代码到远程仓库](# 上传本地代码到远程仓库)
+- [git提交本地到一个子分支并合并子分支到另外一个父分支](# git提交本地到一个子分支并合并子分支到另外一个父分支)
+ 
+#### Git常用命令
 - git remote -v ：显示所有远程仓库
 - **git pull**
     - 将远程主机 origin 的 master 分支拉取过来，与本地的 brantest 分支合并：git pull origin master:brantest
@@ -21,11 +31,10 @@
 ### 简单的放弃本地修改，还原到一开始的状态
 - git checkout -f
 
-
 ### 查看本地分支对应的远程分支
 - git branch -vv
 
-### git 强制push 
+### git强制push 
 git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj
 
 ### git连接远程仓库
@@ -51,7 +60,7 @@ git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj
     - “由于我当前所在分支就是 br_Q2Rest 分支 ,所以本地和远端的参数的默认分支名都是 br_Q2Rest 整的push 参数可以这样写: git push -u lhz br_Q2Rest:br_Q2Rest” 
     - http://3ms.huawei.com/km/blogs/details/9617226
 
-### git提交本地到一个子分支并合并子分支到另外一个父分支：
+### git提交本地到一个子分支并合并子分支到另外一个父分支
 - git branch
 - git checkout [子分支]
 - git add ...
@@ -75,9 +84,3 @@ git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj
 - git rebase --continue  继续解决下一个冲突，直到冲突解决完毕
 - git push origin [子分支] （注意这里就是在子分支）
 （这里如果push失败有可能是还得先pull 子分支的远端分支）
-
-
-### 参考
-- [Git教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/896043488029600)
-- [RESTful API 最佳实践 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html)
-- [GitHub - jlevy/the-art-of-command-line: Master the command line, in one page](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
