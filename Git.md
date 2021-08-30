@@ -15,27 +15,38 @@
     - 如果远程分支是与当前分支合并，则冒号后面的部分可以省略：git pull origin master
 - git fetch：从远程下载代码库（但并不合并）
 - **git push**
-    - 如果当前分支只有一个追踪分支，那么主机名都可以省略：git push
+    - git push：如果当前分支只有一个追踪分支，那么主机名都可以省略
+    - git push origin [branch_name]
+    - git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj：git强制push
+    - 一个罕见的难以解决的错误：
+```
+remote: Start Binary Checking for Branch 'br_Q2Rest' by Rule 'Default Setting'  [FAILED]
+remote: Error: Binary file 'deployment/SMP/diagnose/1.xml.cms' is forbidden
+remote: Error: exit status 1
+To ssh://isource-dg.huawei.com:2222/l30007627/CorbaAgent.git
+ ! [remote rejected]     br_Q2Rest -> br_Q2Rest (pre-receive hook declined)
+error: failed to push some refs to 'ssh://isource-dg.huawei.com:2222/l30007627/CorbaAgent.git'
+```
+        出错原因：由于我当前所在分支就是 br_Q2Rest 分支 ,所以本地和远端的参数的默认分支名都是 br_Q2Rest，完整的push 参数可以这样写：
+            git push -u lhz br_Q2Rest:br_Q2Rest  
 - git log -x：查看最近x个版本：
-- git reset 版本号：回滚到第几个版本
-- git branch XXX：创建分支
-- git branch：显示所有分支
-- git checkout xxx：切换到指定分支
-- git checkout -- .   （**在commit的时候**）： 撤销全部修改
-
+- **git resert**
+    - git reset 版本号：回滚到第几个版本
+    - git reset --soft HEAD^:撤销commit的提交
+- **git branch**
+    - git branch XXX：创建分支
+    - git branch：显示所有分支
+    - git branch -vv：查看本地分支对应的远程分支
+- **git checkout**
+    - git checkout xxx：切换到指定分支
+    - git checkout -- .   （**在commit的时候**）： 撤销全部修改
+    - git checkout -f：简单的放弃本地修改-还原到一开始的状态
+    - git checkout [版本号] -- [文件路径]
 
 ### 放弃本地修改-将本地代码更新到目前远程仓库最新的代码状态
 - git fetch origin master
 - git reset --hard origin/master
 
-### 简单的放弃本地修改-还原到一开始的状态
-- git checkout -f
-
-### 查看本地分支对应的远程分支
-- git branch -vv
-
-### git强制push
-- git push -f origin br_MXJ_nmm:br_ruu_nmm_mxj
 
 ### git连接远程仓库
 - 方法1：手动添加远程分支并命名
