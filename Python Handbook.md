@@ -11,8 +11,6 @@
 * [什么是 lambda 表达式？](#什么是-lambda-表达式)
 * [什么是深拷贝和浅拷贝？](#什么是深拷贝和浅拷贝)
 * [双等于和 is 有什么区别？](#双等于和-is-有什么区别)
-* [其它 Python 知识点](#其它-Python-知识点)
-* [参考](#参考)
 
 ------
 
@@ -144,43 +142,3 @@ print(a is b)
 ```
 
 按照上面的解释，应该会输出False，但是事实上会输出True，这是因为Python中对小数据有缓存机制，-5~256之间的数据都会被缓存。
-
-------
-
-## 其它 Python 知识点
-
-### 类型转换
-- list(x)
-- str(x)
-- set(x)
-- int(x)
-- tuple(x)
-
-### try...except
-
-### list
-- ```lst[a:b]```：左闭右开
-- ```lst.append(value)```：在末尾添加元素，复杂度O(1)
-- ```lst.pop()```：弹出列表末尾元素，复杂度O(1)
-- ```lst.pop(index)```：弹出任意位置元素，将后面的元素前移，复杂度O(n)
-- ```lst.insert(index, value)```：插入元素，后面的元素后移，复杂度O(n)
-- ```lst.remove(value)```：移除等于value的第一个元素，后面的元素前移，复杂度O(n)
-- ```lst.count(value)```：计数值为value的元素个数
-- ```lst.sort(reverse = False)```：排序，默认升序
-
-### async/await 异步修饰符[https://blog.csdn.net/The_Time_Runner/article/details/105646363]
-- async修饰将普通函数和生成器函数包装成异步函数和异步生成器
-    - 异步函数（协程） ：CoroutineType
-```python async def async_function():    return 3```
-    - 异步生成器 ： AsyncGeneratorType
-```python async def async_function():    yield 4```
-
-### @:装饰器[https://www.runoob.com/w3cnote/python-func-decorators.html]
-
-### 参考
-- [生成器 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)
-- [Python中的is和==的区别](https://www.cnblogs.com/yjtxin/p/11793243.html)
-- [为什么Python多线程无法利用多核](https://www.mdeditor.tw/pl/pXhj)
-- [GIL锁、线程锁(互斥锁)、递归锁(RLock)](https://www.cnblogs.com/Keep-Ambition/p/7596098.html)
-
-
