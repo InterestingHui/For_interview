@@ -2,7 +2,6 @@
 
 * [什么是 Python 生成器？](#什么是-Python-生成器)
 * [迭代器和生成器的区别？](#迭代器和生成器的区别)
-* [list 和 tuple 有什么区别？](#list-和-tuple-有什么区别)
 * [Python 中的 list 和 dict 是怎么实现的？](#Python-中的-list-和-dict-是怎么实现的)
 * [Python 中使用多线程可以达到多核CPU一起使用吗？](#Python-中使用多线程可以达到多核CPU一起使用吗)
 * [什么是装饰器？](#什么是装饰器)
