@@ -26,7 +26,6 @@
     - [IP地址的分类?](#IP地址的分类)
     - [什么叫划分子网?](#什么叫划分子网)
     - [什么是NAT (网络地址转换)?](#什么是NAT-Network-Address-Translation-网络地址转换)
-- [参考](#参考)
 <!-- GFM-TOC -->
 
 ------
@@ -394,41 +393,8 @@ Cookie保存在客户端本地，客户端请求服务器时会将Cookie一起�
 
 用于解决内网中的主机要和因特网上的主机通信。由NAT路由器将主机的本地IP地址转换为全球IP地址，分为静态转换（转换得到的全球IP地址固定不变）和动态NAT转换。
 
-### 参考
-- [面试/笔试第一弹 —— 计算机网络面试问题集锦](https://blog.csdn.net/justloveyou_/article/details/78303617)
-- [什么时候选TCP、UDP?](https://blog.csdn.net/yjxsdzx/article/details/71937886)
-
 ### 待完成
 - [ ] 发送窗口的大小，如何最大利用带宽，假设延迟100ms，发送端10Mb/s，接收端100Mb/s. [reference](https://blog.csdn.net/bad_sheep/article/details/6158676)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
