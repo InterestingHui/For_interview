@@ -53,11 +53,6 @@ isinstance(x, Iterable)
 
 生成器都是Iterator，但迭代器不一定是生成器。
 
-## list 和 tuple 有什么区别？
-- list 长度可变，tuple不可变；
-- list 中元素的值可以改变，tuple 不能改变；
-- list 支持```append```; ```insert```; ```remove```; ```pop```等方法，tuple 都不支持
-
 ## Python 中的 list 和 dict 是怎么实现的？
 
 ## Python 中使用多线程可以达到多核CPU一起使用吗？
