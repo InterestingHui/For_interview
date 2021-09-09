@@ -35,6 +35,7 @@
         - [空对象模式](#空对象模式)
 - J2EE模式(待完成)
     - J2EE模式特别关注表示层，J2EE模式是由 Sun Java Center 鉴定的，包括：
+        - [参考](#https://www.runoob.com/design-pattern/visitor-pattern.html) 
         - [MVC模式](#MVC模式)
         - [业务代表模式](#业务代表模式)
         - [组合实体模式](#组合实体模式)
